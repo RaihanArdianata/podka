@@ -3,11 +3,11 @@ import React from 'react';
 import Constants from 'expo-constants';
 import { Button, Icon, Input } from '@ui-kitten/components';
 
-const BellIcon = (props) => (
+const BookmarkIcon = (props) => (
   <Icon
     style={styles.icon}
     fill='#000'
-    name='bell-outline'
+    name='bookmark-outline'
   />
 );
 
@@ -20,7 +20,6 @@ const LensIcon = (props) => (
     />
   </TouchableWithoutFeedback>
 );
-
 
 const HeaderStore = () => {
   return (
@@ -35,7 +34,7 @@ const HeaderStore = () => {
       <Button
         style={{ borderRadius: 20 }}
         appearance='ghost'
-        accessoryLeft={BellIcon}
+        accessoryLeft={BookmarkIcon}
         size="tiny"
       />
     </View>
