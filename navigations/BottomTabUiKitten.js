@@ -8,7 +8,7 @@ const BottomTabUiKitten = ({ navigation, state }) => {
       selectedIndex={state.index}
       onSelect={index => navigation.navigate(state.routeNames[index])}>
       <BottomNavigationTab title='USERS' />
-      <BottomNavigationTab title='ORDERS' />
+      <BottomNavigationTab title='Search' />
     </BottomNavigation>
   );
 };

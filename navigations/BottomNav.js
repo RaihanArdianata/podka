@@ -6,6 +6,7 @@ import BottomTab from './BottomTab';
 import SearchScreen from '../screens/SearchScreen';
 import BottomTabUiKitten from './BottomTabUiKitten';
 import HeaderNavigations from './HeaderNavigation';
+import HeaderSearch from './HeaderSearch';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +33,7 @@ const BottomNav = () => {
         name="Search"
         component={SearchScreen}
         options={{
-          headerShown: false,
+          header: HeaderSearch
         }}
       />
     </Tab.Navigator>
