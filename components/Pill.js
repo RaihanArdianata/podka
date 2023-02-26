@@ -1,12 +1,14 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import React from 'react';
 import { Text } from '@ui-kitten/components/ui';
 
-const Pill = ({ text }) => {
+const Pill = ({ text, action }) => {
   return (
-    <View style={{ ...styles.pillWrapper, paddingHorizontal: 23, paddingVertical: 3, backgroundColor: '#fff', width: 'auto' }}>
-      <Text category='s2'>{text}</Text>
-    </View>
+    <TouchableWithoutFeedback action={action}>
+      <View style={{ ...styles.pillWrapper, paddingHorizontal: 23, paddingVertical: 3, backgroundColor: '#fff', width: 'auto', borderRadius: 10 }}>
+        <Text category='s2'>{text}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
