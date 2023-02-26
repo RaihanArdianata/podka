@@ -8,6 +8,7 @@ import BottomTabUiKitten from './BottomTabUiKitten';
 import HeaderNavigations from './HeaderNavigation';
 import HeaderSearch from './HeaderSearch';
 import StoreScreen from '../screens/StoreScreen';
+import HeaderStore from './HeaderStore';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +42,7 @@ const BottomNav = () => {
         name="Store"
         component={StoreScreen}
         options={{
-          header: HeaderSearch
+          header: HeaderStore
         }}
       />
     </Tab.Navigator>
