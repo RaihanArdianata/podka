@@ -9,6 +9,7 @@ import HeaderNavigations from './HeaderNavigation';
 import HeaderSearch from './HeaderSearch';
 import StoreScreen from '../screens/StoreScreen';
 import HeaderStore from './HeaderStore';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,6 +44,13 @@ const BottomNav = () => {
         component={StoreScreen}
         options={{
           header: HeaderStore
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          headerShown: false
         }}
       />
     </Tab.Navigator>

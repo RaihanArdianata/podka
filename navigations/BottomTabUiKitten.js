@@ -10,6 +10,7 @@ const BottomTabUiKitten = ({ navigation, state }) => {
       <BottomNavigationTab title='Home' />
       <BottomNavigationTab title='Search' />
       <BottomNavigationTab title='Store' />
+      <BottomNavigationTab title='Profile' />
     </BottomNavigation>
   );
 };
