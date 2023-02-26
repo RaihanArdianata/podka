@@ -49,7 +49,7 @@ const SearchScreen = () => {
             <View style={{ marginTop: 40 }}>
               {
                 avatarData.map((item, index) => (
-                  <View style={styles.avatarWrapper}>
+                  <View style={styles.avatarWrapper} key={index}>
                     <Avatar size='large' source={{ uri: item.image }} style={{ marginRight: 10 }} />
                     <View>
                       <Text category='label'>{item.name}</Text>
