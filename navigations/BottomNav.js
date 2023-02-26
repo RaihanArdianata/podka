@@ -7,6 +7,7 @@ import SearchScreen from '../screens/SearchScreen';
 import BottomTabUiKitten from './BottomTabUiKitten';
 import HeaderNavigations from './HeaderNavigation';
 import HeaderSearch from './HeaderSearch';
+import StoreScreen from '../screens/StoreScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,6 +33,13 @@ const BottomNav = () => {
       <Tab.Screen
         name="Search"
         component={SearchScreen}
+        options={{
+          header: HeaderSearch
+        }}
+      />
+      <Tab.Screen
+        name="Store"
+        component={StoreScreen}
         options={{
           header: HeaderSearch
         }}
