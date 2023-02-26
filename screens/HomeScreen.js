@@ -13,16 +13,16 @@ function HomeScreen() {
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
         <Layout style={styles.container}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ padding: 24, }}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ paddingHorizontal: 24, marginVertical: 15 }}>
             {
               testStory.map((item, key) => <AvatarStory key={key} />)
             }
           </ScrollView>
-          <View style={{ padding: 24 }}>
+          <View style={{ paddingHorizontal: 24, marginTop: 20 }}>
             {
               testStory.map((item, key) => {
-                if (key % 2 == 0) return <CardManyContent key={key} />;
-                return <CardPost key={key} />;
+                if (key % 2 == 0) return <CardManyContent key={key} style={{ marginBottom: 20 }} />;
+                return <CardPost key={key} style={{ marginBottom: 20 }} />;
               })
             }
           </View>
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   container: {
     // marginTop: Constants.statusBarHeight,
     flex: 1,
+    backgroundColor: 'transparent',
   },
   storyWrapper: {
     flexDirection: 'row'

@@ -1,8 +1,8 @@
-import Icon from 'react-native-vector-icons/Fontisto';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { StyleSheet } from 'react-native';
 
-export const FontistoIconsPack = {
-  name: 'fontisto',
+export const MaterialCommunityIconsIconsPack = {
+  name: 'MaterialCommunityIcons',
   icons: createIconsMap(),
 };
 
@@ -15,10 +15,10 @@ function createIconsMap() {
 }
 
 const IconProvider = (name) => ({
-  toReactElement: (props) => FontistoIcon({ name, ...props }),
+  toReactElement: (props) => MaterialCommunityIconsIcon({ name, ...props }),
 });
 
-function FontistoIcon({ name, style }) {
+function MaterialCommunityIconsIcon({ name, style }) {
   const { height, tintColor, ...iconStyle } = StyleSheet.flatten(style);
   return (
     <Icon name={name} size={height} color={tintColor} style={iconStyle} />

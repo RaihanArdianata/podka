@@ -8,7 +8,7 @@ const MoreIcon = (props) => (
   <Icon
     style={styles.icon}
     fill='#000'
-    name='more-horizontal-outline'
+    name='dots-horizontal'
   />
 );
 const heartIcon = (props) => (
@@ -22,7 +22,7 @@ const messageIcon = (props) => (
   <Icon
     style={styles.iconTiny}
     fill='#000'
-    name='message-square-outline'
+    name='message-processing-outline'
   />
 );
 const bookmarkIcon = (props) => (
@@ -33,10 +33,10 @@ const bookmarkIcon = (props) => (
   />
 );
 
-const CardPost = () => {
+const CardPost = ({ style }) => {
 
   return (
-    <View>
+    <View style={{ ...style, backgroundColor: '#fff', paddingHorizontal: 15, paddingVertical: 25, borderRadius: 15 }}>
       {/* Header */}
       <View style={styles.CardWrapper}>
         <View style={styles.CardHeaderWrapper}>
@@ -56,7 +56,7 @@ const CardPost = () => {
       {/* Content */}
       <View style={{ marginVertical: 20, justifyContent: 'center' }}>
         <Image
-          style={{ aspectRatio: 2 / 2, borderRadius: 10, marginBottom: 12, minWidth: Dimensions.get("window").width - 24 * 2 }}
+          style={{ aspectRatio: 2 / 2, borderRadius: 10, marginBottom: 12, minWidth: '100%' }}
           source={{ uri: faker.image.fashion(640, 480, true) }}
         />
         <Text category='s2' style={{ color: '#AEAEAE', letterSpacing: 0.3 }}>{faker.lorem.lines(5)}</Text>
