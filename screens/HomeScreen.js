@@ -11,7 +11,7 @@ const testStory = [1, 2, 3, 4, 5, 6];
 function HomeScreen() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView>
         <Layout style={styles.container}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ paddingHorizontal: 24, marginVertical: 15 }}>
             {
