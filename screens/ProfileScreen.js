@@ -1,35 +1,16 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
-import Constants from 'expo-constants';
-import { Layout, Text } from '@ui-kitten/components';
-import CardPost from '../components/CardPost';
-import AvatarStory from '../components/AvatarStory';
-import CardManyContent from '../components/CardManyContent';
+import { Dimensions, SafeAreaView } from 'react-native';
+import TabTest from '../components/tabs-profile/TabsProfile';
+const { width, height } = Dimensions.get('window');
 
-const testStory = [1, 2, 3, 4, 5, 6];
+const CARD_WIDTH = width * 0.80;
 
 function ProfileScreen() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Layout style={styles.container}>
-          <Text>Profile</Text>
-        </Layout>
-      </ScrollView>
+      <TabTest />
     </SafeAreaView>
   );
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    // marginTop: Constants.statusBarHeight,
-    flex: 1,
-    backgroundColor: 'transparent',
-  },
-  storyWrapper: {
-    flexDirection: 'row'
-  }
-});
 
 export default ProfileScreen;
