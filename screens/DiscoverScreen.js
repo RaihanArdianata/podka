@@ -1,11 +1,12 @@
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
 import React from 'react';
+import TabsAditionals from '../components/tabs-discover/TabsDiscover';
 
 const DiscoverScreen = () => {
   return (
-    <View>
-      <Text>DiscoverScreen</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F9F9F9', }}>
+      <TabsAditionals />
+    </SafeAreaView>
   );
 };
 
