@@ -5,7 +5,7 @@ import { faker } from '@faker-js/faker';
 
 const AvatarStory = () => {
   return (
-    <View style={{ borderWidth: 2, borderColor: '#45CB85', padding: 1, borderRadius: 50, marginRight: 15 }}>
+    <View style={{ borderWidth: 2, borderColor: '#8380F4', padding: 1, borderRadius: 50, marginRight: 15 }}>
       <Avatar size='giant' source={{ uri: faker.image.business(1234, 2345, true) }} />
     </View>
   );
