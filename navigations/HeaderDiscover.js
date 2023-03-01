@@ -23,12 +23,12 @@ const LensIcon = (props) => (
 
 const HeaderDiscover = () => {
   return (
-    <View style={{ ...styles.container, paddingHorizontal: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ ...styles.container, paddingHorizontal: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F9F9F9' }}>
       <Input
         value={''}
         placeholder='Place your Text'
         accessoryLeft={LensIcon}
-        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10 }}
+        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10, backgroundColor: '#fff' }}
       // onChangeText={nextValue => setValue(nextValue)}
       />
       <Button
@@ -43,8 +43,8 @@ const HeaderDiscover = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
-    paddingVertical: 10,
+    paddingTop: Constants.statusBarHeight * 1.5,
+    paddingVertical: 20,
     // height: 40
   },
   icon: {

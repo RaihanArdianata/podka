@@ -52,7 +52,9 @@ const BottomNav = () => {
           name="Discover"
           component={DiscoverScreen}
           options={{
-            header: HeaderDiscover
+            // header: () => <View style={{ height: Constants.statusBarHeight, backgroundColor: '#F9F9F9' }}></View>, 
+            header: HeaderDiscover,
+            // headerShown: false
           }}
         />
         <Tab.Screen
