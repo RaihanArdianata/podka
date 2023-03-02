@@ -3,11 +3,11 @@ import React from 'react';
 import Constants from 'expo-constants';
 import { Button, Icon, Input } from '@ui-kitten/components';
 
-const BookmarkIcon = (props) => (
+const BellIcon = (props) => (
   <Icon
     style={styles.icon}
     fill='#000'
-    name='bookmark-outline'
+    name='bell-outline'
   />
 );
 
@@ -21,20 +21,20 @@ const LensIcon = (props) => (
   </TouchableWithoutFeedback>
 );
 
-const HeaderStore = () => {
+const HeaderDiscover = () => {
   return (
-    <View style={{ ...styles.container, paddingHorizontal: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ ...styles.container, paddingHorizontal: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F9F9F9' }}>
       <Input
         value={''}
         placeholder='Place your Text'
         accessoryLeft={LensIcon}
-        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10 }}
+        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10, backgroundColor: '#fff' }}
       // onChangeText={nextValue => setValue(nextValue)}
       />
       <Button
         style={{ borderRadius: 20 }}
         appearance='ghost'
-        accessoryLeft={BookmarkIcon}
+        accessoryLeft={BellIcon}
         size="tiny"
       />
     </View>
@@ -43,8 +43,8 @@ const HeaderStore = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight,
-    paddingVertical: 10,
+    paddingTop: Constants.statusBarHeight * 1.5,
+    paddingVertical: 20,
     // height: 40
   },
   icon: {
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HeaderStore;
+export default HeaderDiscover;

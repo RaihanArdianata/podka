@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { Tabs } from 'react-native-collapsible-tab-view';
 
-import { useRefresh } from './useRefresh';
+import { useRefresh } from '../useRefresh';
 
 export const AlbumsContent = () => {
   return <View style={styles.content}>

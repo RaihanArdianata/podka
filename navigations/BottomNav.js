@@ -10,6 +10,8 @@ import StoreScreen from '../screens/StoreScreen';
 import HeaderStore from './HeaderStore';
 import ProfileScreen from '../screens/ProfileScreen';
 import Constants from 'expo-constants';
+import DiscoverScreen from '../screens/DiscoverScreen';
+import HeaderDiscover from './HeaderDiscover';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,6 +46,15 @@ const BottomNav = () => {
           component={SearchScreen}
           options={{
             header: HeaderSearch
+          }}
+        />
+        <Tab.Screen
+          name="Discover"
+          component={DiscoverScreen}
+          options={{
+            // header: () => <View style={{ height: Constants.statusBarHeight, backgroundColor: '#F9F9F9' }}></View>, 
+            header: HeaderDiscover,
+            // headerShown: false
           }}
         />
         <Tab.Screen
