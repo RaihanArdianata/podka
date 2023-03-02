@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     // marginTop: Constants.statusBarHeight,
     flex: 1,
-    backgroundColor: 'transparent',
+    backgroundColor: '#F9F9F9'
   },
   storyWrapper: {
     flexDirection: 'row'
