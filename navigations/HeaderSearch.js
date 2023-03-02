@@ -35,7 +35,7 @@ const HeaderSearch = () => {
         value={''}
         placeholder='Place your Text'
         accessoryLeft={LensIcon}
-        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10 }}
+        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10, }}
       // onChangeText={nextValue => setValue(nextValue)}
       />
     </View>
@@ -44,7 +44,8 @@ const HeaderSearch = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#F9F9F9',
     paddingVertical: 10,
     // height: 40
   },

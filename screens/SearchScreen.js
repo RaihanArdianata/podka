@@ -26,7 +26,7 @@ const TrashIcon = (props) => (
 
 const SearchScreen = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F9F9F9' }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Layout style={styles.container}>
           <View style={{ paddingHorizontal: 24, marginTop: 20 }}>
