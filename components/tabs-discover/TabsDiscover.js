@@ -1,8 +1,7 @@
 import { View, Text, useWindowDimensions, StyleSheet, TouchableOpacity, Animated, Dimensions, ScrollView, TouchableWithoutFeedback, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { TabView, SceneMap } from 'react-native-tab-view';
-import { AlbumsContent } from './Albums';
-import { Button } from '@ui-kitten/components';
+import DiscoverTabPage from './DiscoverTabPage';
 const LazyPlaceholder = ({ route }) => (
   <View style={styles.scene}>
     <Text>Loading {route.title}…</Text>
@@ -58,11 +57,11 @@ export default function Tabs() {
       lazy
       navigationState={{ index, routes }}
       renderScene={SceneMap({
-        all: AlbumsContent,
-        podcast: AlbumsContent,
-        audioRoom: AlbumsContent,
-        debateRoom: AlbumsContent,
-        others: AlbumsContent,
+        all: DiscoverTabPage,
+        podcast: DiscoverTabPage,
+        audioRoom: DiscoverTabPage,
+        debateRoom: DiscoverTabPage,
+        others: DiscoverTabPage,
       })}
       renderLazyPlaceholder={_renderLazyPlaceholder}
       onIndexChange={_handleIndexChange}
