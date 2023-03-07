@@ -7,7 +7,7 @@ const CARD_WIDTH = width * 0.80;
 
 function ProfileScreen() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F9F9F9', }}>
       <TabTest />
     </SafeAreaView>
   );
