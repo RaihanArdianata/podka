@@ -28,7 +28,7 @@ const HeaderStore = () => {
         value={''}
         placeholder='Place your Text'
         accessoryLeft={LensIcon}
-        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10 }}
+        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10, backgroundColor: '#fff' }}
       // onChangeText={nextValue => setValue(nextValue)}
       />
       <Button
@@ -43,9 +43,10 @@ const HeaderStore = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight * 1.5,
     paddingVertical: 10,
     // height: 40
+    backgroundColor: '#F9F9F9',
   },
   icon: {
     width: 25,
