@@ -41,7 +41,7 @@ const CardManyContent = ({ style }) => {
       {/* Header */}
       <View style={styles.CardWrapper}>
         <View style={styles.CardHeaderWrapper}>
-          <Avatar source={{ uri: faker.image.business(1234, 2345, true) }} style={{ marginRight: 10 }} />
+          <Avatar source={{ uri: faker.image.business(250, 250, true) }} style={{ marginRight: 10 }} />
           <View>
             <Text category='label'>{faker.name.fullName()}</Text>
             <Text category='s2' style={{ color: '#AEAEAE' }}>{moment(faker.date.between('2021-01-01T00:00:00.000Z', new Date())).startOf('hour').fromNow()}</Text>

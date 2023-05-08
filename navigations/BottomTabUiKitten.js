@@ -21,9 +21,6 @@ const searchIcon = (props) => {
   );
 };
 const discoverIcon = (props) => {
-  console.log('====================================');
-  console.log(props.style.tintColor);
-  console.log('====================================');
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center', width: 50, height: 50, borderRadius: 25, backgroundColor: props.style.tintColor ? props.style.tintColor : 'green' }}>
       <Icon
@@ -59,6 +56,7 @@ const BottomTabUiKitten = ({ navigation, state }) => {
   return (
     <BottomNavigation
       selectedIndex={state.index}
+      style={{ paddingVertical: 20 }}
       appearance="noIndicator"
       onSelect={index => navigation.navigate(state.routeNames[index])}>
       <BottomNavigationTab title='Home' icon={homeIcon} />
