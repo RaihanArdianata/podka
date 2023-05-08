@@ -24,7 +24,7 @@ const LensIcon = (props) => (
 const HeaderSearch = () => {
   // const [value, setValue] = useState('');
   return (
-    <View style={{ ...styles.container, paddingHorizontal: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ ...styles.container, paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
       <Button
         style={{ borderRadius: 20 }}
         appearance='ghost'

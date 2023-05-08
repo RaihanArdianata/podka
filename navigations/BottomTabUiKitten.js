@@ -21,9 +21,6 @@ const searchIcon = (props) => {
   );
 };
 const discoverIcon = (props) => {
-  console.log('====================================');
-  console.log(props.style.tintColor);
-  console.log('====================================');
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center', width: 50, height: 50, borderRadius: 25, backgroundColor: props.style.tintColor ? props.style.tintColor : 'green' }}>
       <Icon

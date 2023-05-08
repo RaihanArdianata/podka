@@ -20,7 +20,7 @@ const DiscoverTabPage = () => {
                 <Text>View All</Text>
               </TouchableWithoutFeedback>
             </View>
-            <ScrollView horizontal>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <CardEvent />
             </ScrollView>
           </View>

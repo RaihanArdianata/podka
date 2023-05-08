@@ -1,5 +1,6 @@
-import { View, Text, Dimensions, StyleSheet } from 'react-native';
+import { View, Dimensions, StyleSheet } from 'react-native';
 import React from 'react';
+import { Icon, Text } from '@ui-kitten/components';
 
 const { width, height } = Dimensions.get('window');
 
@@ -7,6 +8,14 @@ const Metrics = {
   section: 16,
   halfSection: 8,
 };
+
+const MoreIcon = (props) => (
+  <Icon
+    style={styles.icon}
+    fill='#6B7280'
+    name='dots-horizontal'
+  />
+);
 
 const CARD_WIDTH = width * 1; //* 100 %
 const CARD_ASPECT_RATIO = 345 / 170;
@@ -19,6 +28,12 @@ const IMAGE_CONTAINER_HEIGHT =
 const CardEvent = () => {
   return (
     <View style={{ ...styles.cardWrapper, backgroundColor: '#fff', }}>
+      {/* header */}
+      <View style={[styles.cardHeader]}>
+        <MoreIcon />
+        <Text style={{ marginLeft: 10, color: '#6B7280', fontSize: 14 }}>Audio Room</Text>
+      </View>
+      {/* content */}
       <Text>CardEvent</Text>
     </View>
   );
@@ -41,8 +56,12 @@ const styles = StyleSheet.create({
   icon: {
     width: 25,
     height: 25,
-    backgroundColor: 'transparent'
+    color: '#6B7280'
   },
+  cardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  }
 });
 
 export default CardEvent;
