@@ -1830,11 +1830,14 @@
   version "2.1.0"
   resolved "https://registry.npmjs.org/@react-native/normalize-color/-/normalize-color-2.1.0.tgz"
   integrity sha512-Z1jQI2NpdFJCVgpY+8Dq/Bt3d+YUi1928Q+/CZm/oh66fzM0RUl54vvuXlPJKybH4pdCZey1eDTPaLHkMPNgWA==
+<<<<<<< HEAD
 
 "@react-native/normalize-color@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@react-native/normalize-color/-/normalize-color-2.1.0.tgz#939b87a9849e81687d3640c5efa2a486ac266f91"
   integrity sha512-Z1jQI2NpdFJCVgpY+8Dq/Bt3d+YUi1928Q+/CZm/oh66fzM0RUl54vvuXlPJKybH4pdCZey1eDTPaLHkMPNgWA==
+=======
+>>>>>>> 9e04d91a0e21ab4c36052ef559f85458330bea29
 
 "@react-native/polyfills@2.0.0":
   version "2.0.0"
@@ -6004,6 +6007,14 @@ react-native-svg@13.4.0:
     css-select "^5.1.0"
     css-tree "^1.1.3"
 
+<<<<<<< HEAD
+=======
+react-native-swiper-flatlist@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-swiper-flatlist/-/react-native-swiper-flatlist-3.2.2.tgz#df2f7dfbdbd6947ff922affa053f9f016e488ab2"
+  integrity sha512-VVtxJCb2QHGA3ZpLiFqEHv6wyTlnlov5kL0dPKCb9Kc/W1wx8x2ZRFJU2Xja60CKbXDr5zwpxRayBm3bLgFEPg==
+
+>>>>>>> 9e04d91a0e21ab4c36052ef559f85458330bea29
 react-native-tab-view@^3.4.1:
   version "3.4.1"
   resolved "https://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-3.4.1.tgz"
@@ -6577,7 +6588,11 @@ source-map@^0.5.6:
 
 source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
   version "0.6.1"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+=======
+  resolved "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz"
+>>>>>>> 9e04d91a0e21ab4c36052ef559f85458330bea29
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
 source-map@^0.7.3:

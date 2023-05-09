@@ -34,6 +34,7 @@
     "react-native-screens": "~3.18.0",
     "react-native-snap-carousel": "^4.0.0-beta.6",
     "react-native-svg": "13.4.0",
+    "react-native-swiper-flatlist": "^3.2.2",
     "react-native-tab-view": "^3.4.1",
     "react-native-vector-icons": "^9.2.0"
   },
