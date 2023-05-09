@@ -24,11 +24,32 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.mikasa69.mypodapp"
     },
     "web": {
       "favicon": "./assets/favicon.png",
-      "build": { "babel": { "include": [ "@ui-kitten/components" ] }}
+      "build": {
+        "preview": {
+          "android": {
+            "buildType": "apk"
+          }
+        },
+        "preview2": {
+          "android": {
+            "gradleCommand": ":app:assembleRelease"
+          }
+        },
+        "preview3": {
+          "developmentClient": true
+        },
+        "production": {}
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "548b4a01-6fd8-4f54-a3db-cf1655113d73"
+      }
     }
   }
 }
