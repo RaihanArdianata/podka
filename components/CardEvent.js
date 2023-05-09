@@ -2,6 +2,7 @@ import { View, Dimensions, StyleSheet, Image, TouchableHighlight } from 'react-n
 import React from 'react';
 import { Icon, Text, Avatar, Button } from '@ui-kitten/components';
 import { faker } from '@faker-js/faker';
+import { useNavigation } from '@react-navigation/core';
 
 const { width, height } = Dimensions.get('window');
 
@@ -48,6 +49,7 @@ const IMAGE_CONTAINER_HEIGHT =
   IMAGE_CONTAINER_WIDTH / IMAGE_CONTAINER_ASPECT_RATIO;
 
 const CardEvent = ({ roomType = 1 }) => {
+  const navigation = useNavigation();
   return (
     <View style={{ ...styles.cardWrapper, backgroundColor: '#fff', }}>
       {/* header */}
@@ -97,7 +99,7 @@ const CardEvent = ({ roomType = 1 }) => {
                 <TimeIcon />
               </View>
             </View>
-            <Button onPress={() => console.log('ok')} size='small' style={{ borderRadius: 25 }}>
+            <Button onPress={() => navigation.push('AudioRoom', { title: 'Conversation About Art' })} size='small' style={{ borderRadius: 25 }}>
               Join
             </Button>
           </View>

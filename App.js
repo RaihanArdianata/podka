@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomNav from './navigations/BottomNav';
 import { MaterialCommunityIconsIconsPack } from './components/Icons/material-community-icons-provider';
 import StatusScreen from './screens/root/StatusScreen';
+import AudioRoom from './screens/feature-room/AudioRoom';
 
 // const MoreIcon = (props) => (
 //   <Icon
@@ -31,6 +32,18 @@ export default function App() {
               headerShown: false
             }} />
             <Stack.Screen name="Status" component={StatusScreen} options={{
+              headerShown: false,
+              animation: 'fade',
+              config: {
+                stiffness: 1000,
+                damping: 500,
+                mass: 3,
+                overshootClamping: true,
+                restDisplacementThreshold: 0.01,
+                restSpeedThreshold: 0.01,
+              },
+            }} />
+            <Stack.Screen name="AudioRoom" component={AudioRoom} options={{
               headerShown: false,
               animation: 'fade',
               config: {
