@@ -56,7 +56,6 @@ const StatusScreen = ({ route, navigation }) => {
         {keyboardStatus && <TouchableWithoutFeedback onPress={Keyboard.dismiss}><View style={[styles.overlay]} /></TouchableWithoutFeedback>}
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={[styles.root]}>
-            {/* <StatusBar backgroundColor='black' barStyle="light-content" /> */}
             <View style={[styles.line]}>
               <View style={[styles.progress]}>
 
