@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, StatusBar, Image, Pressable, TouchableOpacity, Dimensions, Platform, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, TextInput, } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, StatusBar, Image, Pressable, TouchableOpacity, Dimensions, Platform, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, TextInput, Animated, } from 'react-native';
 import React from 'react';
 import Constants from 'expo-constants';
 import { Icon, Input, Layout } from '@ui-kitten/components';
@@ -30,6 +30,25 @@ const StatusScreen = ({ route, navigation }) => {
   const { name, image } = route.params;
 
   const [keyboardStatus, setKeyboardStatus] = useState(false);
+  const [progress, setProgress] = useState(new Animated.Value(0));
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      navigation.goBack();
+    }, 5000);
+
+    Animated.timing(progress, {
+      toValue: 5,
+      duration: 5000,
+      useNativeDriver: false,
+    }).start();
+    return () => clearTimeout(timer);
+  }, []);
+
+  const progressAnimation = progress.interpolate({
+    inputRange: [0, 5],
+    outputRange: ['0%', '100%']
+  });
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
@@ -47,19 +66,19 @@ const StatusScreen = ({ route, navigation }) => {
   }, []);
 
   return (
-    <>
+    <SafeAreaView>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         enabled={false}
-        style={{ paddingTop: Constants.statusBarHeight + 10, backgroundColor: 'black' }}
+        style={{ backgroundColor: 'black' }} //paddingTop: Constants.statusBarHeight + 10, 
       >
         {keyboardStatus && <TouchableWithoutFeedback onPress={Keyboard.dismiss}><View style={[styles.overlay]} /></TouchableWithoutFeedback>}
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={[styles.root]}>
             <View style={[styles.line]}>
-              <View style={[styles.progress]}>
+              <Animated.View style={[styles.progress, { width: progressAnimation }]}>
 
-              </View>
+              </Animated.View>
             </View>
             <View style={[styles.imageWrapper]}>
               <View style={[styles.imageContainer]}>
@@ -85,7 +104,7 @@ const StatusScreen = ({ route, navigation }) => {
           <PlaneIcon />
         </TouchableOpacity>
       </View>
-    </>
+    </SafeAreaView>
   );
 };
 
@@ -117,7 +136,7 @@ const styles = StyleSheet.create({
   },
   progress: {
     height: '100%',
-    width: '50%',
+    // width: '50%',
     backgroundColor: 'white',
   },
   imageWrapper: {
