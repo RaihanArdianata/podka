@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomNav from './navigations/BottomNav';
 import { MaterialCommunityIconsIconsPack } from './components/Icons/material-community-icons-provider';
+import StatusScreen from './screens/root/StatusScreen';
 
 // const MoreIcon = (props) => (
 //   <Icon
@@ -28,6 +29,18 @@ export default function App() {
           <Stack.Navigator initialRouteName={"HomeTabs"} screenOptions={{ headerShown: true }}>
             <Stack.Screen name="HomeTabs" component={BottomNav} options={{
               headerShown: false
+            }} />
+            <Stack.Screen name="Status" component={StatusScreen} options={{
+              headerShown: false,
+              animation: 'fade',
+              config: {
+                stiffness: 1000,
+                damping: 500,
+                mass: 3,
+                overshootClamping: true,
+                restDisplacementThreshold: 0.01,
+                restSpeedThreshold: 0.01,
+              },
             }} />
             {/* <Stack.Screen name="HomeTabs" component={BottomNavigation} /> */}
           </Stack.Navigator>
