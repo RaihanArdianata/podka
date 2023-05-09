@@ -41,7 +41,7 @@ const CardManyContent = ({ style }) => {
       {/* Header */}
       <View style={styles.CardWrapper}>
         <View style={styles.CardHeaderWrapper}>
-          <Avatar source={{ uri: faker.image.business(1234, 2345, true) }} style={{ marginRight: 10 }} />
+          <Avatar source={{ uri: faker.image.business(250, 250, true) }} style={{ marginRight: 10 }} />
           <View>
             <Text category='label'>{faker.name.fullName()}</Text>
             <Text category='s2' style={{ color: '#AEAEAE' }}>{moment(faker.date.between('2021-01-01T00:00:00.000Z', new Date())).startOf('hour').fromNow()}</Text>
@@ -58,11 +58,11 @@ const CardManyContent = ({ style }) => {
       <View style={{ marginVertical: 20, justifyContent: 'center', }}>
         <Image
           style={{ aspectRatio: 2 / 2, borderRadius: 10, marginBottom: 12, minWidth: '100%' }}
-          source={{ uri: faker.image.fashion(640, 480, true) }}
+          source={{ uri: faker.image.business(640, 480, true) }}
         />
         <Image
           style={{ aspectRatio: 2 / 2, borderRadius: 10, marginBottom: 12, minWidth: '100%' }}
-          source={{ uri: faker.image.fashion(640, 480, true) }}
+          source={{ uri: faker.image.business(640, 480, true) }}
         />
         <Poll />
         <Text category='s2' style={{ color: '#AEAEAE', letterSpacing: 0.3 }}>{faker.lorem.lines(5)}</Text>

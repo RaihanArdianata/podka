@@ -16,7 +16,7 @@ function HomeScreen() {
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={startRefreshing} />}>
         <Layout style={styles.container}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ paddingHorizontal: 24, marginVertical: 5 }}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ paddingHorizontal: 10, marginVertical: 5 }}>
             {
               testStory.map((item, key) => <AvatarStory key={key} />)
             }
