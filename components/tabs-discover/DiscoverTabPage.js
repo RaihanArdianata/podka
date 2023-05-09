@@ -5,9 +5,11 @@ import Banner from '../Banner';
 import CardEvent from '../CardEvent';
 import CarouselCustom from '../Carousel';
 import { useRefresh } from '../useRefresh';
+import { useNavigation } from '@react-navigation/core';
 
 const DiscoverTabPage = () => {
   const [isRefreshing, startRefreshing] = useRefresh();
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1, paddingHorizontal: 24 }}>
       <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={startRefreshing} />}>
