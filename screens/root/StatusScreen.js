@@ -66,11 +66,11 @@ const StatusScreen = ({ route, navigation }) => {
   }, []);
 
   return (
-    <>
+    <SafeAreaView>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         enabled={false}
-        style={{ paddingTop: Constants.statusBarHeight + 10, backgroundColor: 'black' }}
+        style={{ backgroundColor: 'black' }} //paddingTop: Constants.statusBarHeight + 10, 
       >
         {keyboardStatus && <TouchableWithoutFeedback onPress={Keyboard.dismiss}><View style={[styles.overlay]} /></TouchableWithoutFeedback>}
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -104,7 +104,7 @@ const StatusScreen = ({ route, navigation }) => {
           <PlaneIcon />
         </TouchableOpacity>
       </View>
-    </>
+    </SafeAreaView>
   );
 };
 
