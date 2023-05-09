@@ -8,16 +8,16 @@ const Banner = ({ imageURI }) => {
   return (
     <View style={{}}>
       <ImageBackground source={{ uri: faker.image.abstract(1234, 180, true) }} resizeMode="cover" style={{ width: '100%', height: 180 }} imageStyle={{ borderRadius: 20 }} >
-        <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', padding: 16 }}>
+        <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', padding: 16, width: '100%' }}>
           <View>
-            <Text category='h6' style={[styles.text, { color: 'white' }]}>Quiz Negara</Text>
-            <Text style={[styles.text, { color: 'white' }]}>Mengenal lembaga NKRI</Text>
+            <Text category='h6' style={[styles.text, { color: 'white' }]}>Title</Text>
+            <Text style={[styles.text, { color: 'white' }]}>SubTitle</Text>
           </View>
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Image
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', right: 0 }}>
+            {/* <Image
               style={{}}
               source={require('../assets/piala.png')}
-            />
+            /> */}
           </View>
         </View>
       </ImageBackground>

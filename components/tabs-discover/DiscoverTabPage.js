@@ -20,7 +20,18 @@ const DiscoverTabPage = () => {
                 <Text>View All</Text>
               </TouchableWithoutFeedback>
             </View>
-            <ScrollView horizontal>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <CardEvent />
+            </ScrollView>
+          </View>
+          <View>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Text category='h6'>Upcomming Event</Text>
+              <TouchableWithoutFeedback onPress={() => console.log('ok')}>
+                <Text>View All</Text>
+              </TouchableWithoutFeedback>
+            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <CardEvent />
             </ScrollView>
           </View>
