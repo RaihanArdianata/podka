@@ -30,7 +30,7 @@ export default HeaderNavigations;
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: Constants.statusBarHeight + 10,
+    paddingTop: Constants.statusBarHeight * 1.5,
     paddingVertical: 10,
     backgroundColor: '#F9F9F9'
     // height: 40

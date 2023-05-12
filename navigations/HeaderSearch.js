@@ -44,7 +44,7 @@ const HeaderSearch = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: Constants.statusBarHeight * 1.5,
+    paddingTop: Constants.statusBarHeight * 1.5,
     backgroundColor: '#F9F9F9',
     paddingVertical: 10,
     // height: 40
