@@ -44,6 +44,7 @@ export default function App() {
               },
             }} />
             <Stack.Screen name="AudioRoom" component={AudioRoom} options={{
+              title: 'Audio Room',
               headerShown: true,
               animation: 'fade',
               config: {
