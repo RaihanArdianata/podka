@@ -13,7 +13,7 @@ function HomeScreen() {
   const [isRefreshing, startRefreshing] = useRefresh();
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={startRefreshing} />}>
         <Layout style={styles.container}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ paddingHorizontal: 10, marginVertical: 5 }}>
@@ -31,14 +31,13 @@ function HomeScreen() {
           </View>
         </Layout>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop: Constants.statusBarHeight,
     flex: 1,
     backgroundColor: '#F9F9F9'
   },

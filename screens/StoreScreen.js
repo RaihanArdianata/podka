@@ -19,7 +19,7 @@ const StoreScreen = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#F9F9F9', }}>
+    <View style={{ flex: 1, backgroundColor: '#F9F9F9', }}>
       <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={startRefreshing} />}>
         <Layout style={styles.container}>
           <View>
@@ -40,13 +40,12 @@ const StoreScreen = () => {
           </View>
         </Layout>
       </ScrollView>
-    </SafeAreaView >
+    </View >
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop: Constants.statusBarHeight,
     flex: 1,
     backgroundColor: 'transparent',
   },

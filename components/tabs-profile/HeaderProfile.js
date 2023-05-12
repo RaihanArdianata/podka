@@ -1,22 +1,39 @@
 import React from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import Constants from 'expo-constants';
-import { Text, Button } from '@ui-kitten/components';
+import { Text, Button, Icon } from '@ui-kitten/components';
 import { faker } from '@faker-js/faker';
 import AvatarCustom from '../AvatarCustom';
 import DividerCustom from '../DividerCustom';
 const { width, height } = Dimensions.get('window');
 
 const CARD_WIDTH = width * 0.80;
-
-const HeaderProfile = () => {
+const CommentRwquestIcon = (props) => {
   return (
-    <View style={{ paddingHorizontal: 24, marginTop: 50, justifyContent: 'center', alignItems: 'center' }}>
+    <Icon
+      {...props}
+      style={[styles.iconTiny,]}
+      name='comment-question-outline'
+    />
+  );
+};
+
+const HeaderProfile = ({ myProfile = true, followed = false }) => {
+  return (
+    <View style={{ paddingHorizontal: 24, justifyContent: 'center', alignItems: 'center', }}>
       {/* bio */}
       <View style={[{ justifyContent: 'center', alignItems: 'center' }]}>
         <AvatarCustom style={styles.avatar} source={{ uri: faker.image.business(1234, 2345, true) }} />
-        <Text category='h6' style={[styles.styleText,
-        {}]}>{faker.name.fullName()}</Text>
+        <View style={[styles.nameWraper]}>
+          <Text category='h6' style={[styles.styleText,
+          {}]}>{faker.name.fullName()}</Text>
+          {!myProfile && <Button
+            style={{ borderRadius: 20 }}
+            appearance='ghost'
+            accessoryLeft={CommentRwquestIcon}
+            size="tiny"
+          />}
+        </View>
         <Text category='p2' style={[styles.styleText, { color: '#AEAEAE' }]}>@{faker.name.fullName()}</Text>
         <Text category='p2' style={[styles.styleText, { color: '#AEAEAE', textAlign: 'center', width: CARD_WIDTH }]}>{faker.lorem.paragraph(2)}</Text>
       </View>
@@ -38,8 +55,14 @@ const HeaderProfile = () => {
         </View>
       </View>
       {/* button action*/}
-      <View style={{ marginVertical: 20 }}>
+      <View style={[styles.buttonGroup]}>
         <Button size='medium'>Edit Profile</Button>
+        {
+          !myProfile && <>
+            <Button size='medium' style={{ marginRight: 10 }}>Follow</Button>
+            <Button size='medium' appearance='outline'>Message</Button>
+          </>
+        }
       </View>
       {/* Content */}
     </View>
@@ -47,6 +70,15 @@ const HeaderProfile = () => {
 };
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    width: '100%',
+    // backgroundColor: 'green',
+    // height: 40
+  },
+  nameWraper: {
+    flexDirection: 'row'
+  },
   container: {
     // paddingTop: Constants.statusBarHeight,
     backgroundColor: 'transparent'
@@ -56,7 +88,16 @@ const styles = StyleSheet.create({
   },
   styleText: {
     marginVertical: 5
-  }
+  },
+  iconTiny: {
+    width: 25,
+    height: 25,
+    color: 'black'
+  },
+  buttonGroup: {
+    marginVertical: 20,
+    flexDirection: 'row',
+  },
 });
 
 

@@ -43,7 +43,7 @@ const HeaderStore = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: Constants.statusBarHeight * 1.5,
+    paddingTop: Constants.statusBarHeight * 1.5,
     paddingVertical: 10,
     // height: 40
     backgroundColor: '#F9F9F9',

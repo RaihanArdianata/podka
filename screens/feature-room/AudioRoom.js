@@ -155,7 +155,7 @@ const AudioRoom = ({ route }) => {
   const [isMute, setIsMute] = useState(false);
   const [isUserMute, setIsUserMute] = useState(false);
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#F9F9F9', }}>
+    <View style={{ flex: 1, backgroundColor: '#F9F9F9', }}>
 
       <Layout style={[styles.root]}>
         <View style={[styles.container]}>
@@ -287,13 +287,12 @@ const AudioRoom = ({ route }) => {
         </View>
       </Layout>
 
-    </SafeAreaView >
+    </View >
   );
 };
 
 const styles = StyleSheet.create({
   root: {
-    // marginTop: Constants.statusBarHeight,
     flex: 1,
     backgroundColor: 'white',
     paddingHorizontal: 5,
@@ -302,7 +301,6 @@ const styles = StyleSheet.create({
     marginTop: '10%',
   },
   container: {
-    // marginTop: Constants.statusBarHeight,
     flex: 1,
     backgroundColor: 'white',
     paddingHorizontal: 24,
