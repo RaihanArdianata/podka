@@ -5,11 +5,14 @@ import Banner from '../Banner';
 import CardEvent from '../CardEvent';
 import CarouselCustom from '../Carousel';
 import { useRefresh } from '../useRefresh';
+import { useNavigation } from '@react-navigation/core';
+import Constants from 'expo-constants';
 
 const DiscoverTabPage = () => {
   const [isRefreshing, startRefreshing] = useRefresh();
+  const navigation = useNavigation();
   return (
-    <SafeAreaView style={{ flex: 1, paddingHorizontal: 24 }}>
+    <View style={{ flex: 1, paddingHorizontal: 24 }}>
       <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={startRefreshing} />}>
         <Layout style={styles.container}>
           <CarouselCustom />
@@ -20,13 +23,24 @@ const DiscoverTabPage = () => {
                 <Text>View All</Text>
               </TouchableWithoutFeedback>
             </View>
-            <ScrollView horizontal>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <CardEvent />
+            </ScrollView>
+          </View>
+          <View>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Text category='h6'>Upcomming Event</Text>
+              <TouchableWithoutFeedback onPress={() => console.log('ok')}>
+                <Text>View All</Text>
+              </TouchableWithoutFeedback>
+            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <CardEvent />
             </ScrollView>
           </View>
         </Layout>
       </ScrollView>
-    </SafeAreaView >
+    </View >
   );
 };
 

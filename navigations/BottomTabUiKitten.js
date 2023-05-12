@@ -1,6 +1,9 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import React, { useState } from 'react';
 import { BottomNavigation, BottomNavigationTab, Icon } from '@ui-kitten/components';
+import Lottie from 'lottie-react-native';
+import { useRef } from 'react';
+import soundWaveAnimate from '../assets/sound-wave.json';
 
 const homeIcon = (props) => {
   return (
@@ -21,17 +24,26 @@ const searchIcon = (props) => {
   );
 };
 const discoverIcon = (props) => {
-  console.log('====================================');
-  console.log(props.style.tintColor);
-  console.log('====================================');
+  const animation = useRef(null);
+
   return (
-    <View style={{ justifyContent: 'center', alignItems: 'center', width: 50, height: 50, borderRadius: 25, backgroundColor: props.style.tintColor ? props.style.tintColor : 'green' }}>
-      <Icon
+    <View style={{ justifyContent: 'center', alignItems: 'center', width: 50, height: 50, borderRadius: 25, backgroundColor: props.style.tintColor }}>
+      <Lottie
+        autoPlay
+        loop
+        ref={animation}
+        // Find more Lottie files at https://lottiefiles.com/featured
+        style={{
+
+        }}
+        source={soundWaveAnimate}
+      />
+      {/* <Icon
         {...props}
         style={[styles.iconTiny]}
         fill={'#fff'}
         name='waveform'
-      />
+      /> */}
     </View>
   );
 };
@@ -59,6 +71,7 @@ const BottomTabUiKitten = ({ navigation, state }) => {
   return (
     <BottomNavigation
       selectedIndex={state.index}
+      style={{ paddingVertical: 20 }}
       appearance="noIndicator"
       onSelect={index => navigation.navigate(state.routeNames[index])}>
       <BottomNavigationTab title='Home' icon={homeIcon} />
@@ -71,6 +84,12 @@ const BottomTabUiKitten = ({ navigation, state }) => {
 };
 
 const styles = StyleSheet.create({
+  animationContainer: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
   icon: {
     width: 32,
     height: 32,

@@ -1,8 +1,9 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, Pressable } from 'react-native';
 import React from 'react';
 import { Avatar, Button, Icon, Layout } from '@ui-kitten/components/ui';
 import Pill from '../components/Pill';
 import { faker } from '@faker-js/faker';
+import { useNavigation } from '@react-navigation/core';
 
 const pillData = [
   'amerika', 'jepang', 'daniel', 'sella'
@@ -25,8 +26,9 @@ const TrashIcon = (props) => (
 );
 
 const SearchScreen = () => {
+  const navigation = useNavigation();
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#F9F9F9' }}>
+    <View style={{ flex: 1, backgroundColor: '#F9F9F9' }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Layout style={styles.container}>
           <View style={{ paddingHorizontal: 24, marginTop: 20 }}>
@@ -49,26 +51,29 @@ const SearchScreen = () => {
             <View style={{ marginTop: 40 }}>
               {
                 avatarData.map((item, index) => (
-                  <View style={styles.avatarWrapper} key={index}>
-                    <Avatar size='large' source={{ uri: item.image }} style={{ marginRight: 10 }} />
-                    <View>
-                      <Text category='label'>{item.name}</Text>
-                      <Text category='s2' style={{ color: '#AEAEAE' }}>{item.username}</Text>
+                  <Pressable key={index} onPress={() => navigation.navigate('Profile', {
+                    myProfile: false,
+                  })}>
+                    <View style={styles.avatarWrapper}>
+                      <Avatar size='large' source={{ uri: item.image }} style={{ marginRight: 10 }} />
+                      <View>
+                        <Text category='label'>{item.name}</Text>
+                        <Text category='s2' style={{ color: '#AEAEAE' }}>{item.username}</Text>
+                      </View>
                     </View>
-                  </View>
+                  </Pressable>
                 ))
               }
             </View>
           </View>
         </Layout>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop: Constants.statusBarHeight,
     flex: 1,
     backgroundColor: 'transparent',
   },

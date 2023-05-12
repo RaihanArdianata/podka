@@ -12,6 +12,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import Constants from 'expo-constants';
 import DiscoverScreen from '../screens/DiscoverScreen';
 import HeaderDiscover from './HeaderDiscover';
+import HeaderProfile from './HeaderProfile';
 
 const Tab = createBottomTabNavigator();
 
@@ -52,7 +53,7 @@ const BottomNav = () => {
           name="Discover"
           component={DiscoverScreen}
           options={{
-            // header: () => <View style={{ height: Constants.statusBarHeight, backgroundColor: '#F9F9F9' }}></View>, 
+            // header: () => <View style={{ height: Constants.statusBarHeight, backgroundColor: '#F9F9F9' }}></View>,
             header: HeaderDiscover,
             // headerShown: false
           }}
@@ -68,7 +69,7 @@ const BottomNav = () => {
           name="Profile"
           component={ProfileScreen}
           options={{
-            header: Header,
+            header: HeaderProfile,
             tabBarLabel: ''
           }}
         />
@@ -79,7 +80,7 @@ const BottomNav = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: Constants.statusBarHeight,
+    // height: Constants.statusBarHeight,
     backgroundColor: '#fff'
   },
 });

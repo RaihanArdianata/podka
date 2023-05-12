@@ -36,7 +36,7 @@ const StoreCard = () => {
       </View>
       {/* product image */}
       <View style={{ marginVertical: 20 }}>
-        <Image source={{ uri: faker.image.fashion(1234, 2345, true) }} style={{ ...styles.cardImage }} />
+        <Image source={{ uri: faker.image.abstract(1234, 2345, true) }} style={{ ...styles.cardImage }} />
       </View>
       {/* footer */}
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>

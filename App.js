@@ -56,18 +56,6 @@ export default function App() {
                 restSpeedThreshold: 0.01,
               },
             }} />
-            <Stack.Screen name="UserProfile" component={ProfileScreen} options={{
-              headerShown: true,
-              animation: 'fade',
-              config: {
-                stiffness: 1000,
-                damping: 500,
-                mass: 3,
-                overshootClamping: true,
-                restDisplacementThreshold: 0.01,
-                restSpeedThreshold: 0.01,
-              },
-            }} />
             {/* <Stack.Screen name="HomeTabs" component={BottomNavigation} /> */}
           </Stack.Navigator>
           {/* <BottomNavigation /> */}
