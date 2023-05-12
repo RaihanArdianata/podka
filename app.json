@@ -4,7 +4,7 @@
     "slug": "my-pod-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo-icon.png",
+    "icon": "./assets/icon-podka.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash-podka.png",
