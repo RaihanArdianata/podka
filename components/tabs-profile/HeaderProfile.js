@@ -56,7 +56,9 @@ const HeaderProfile = ({ myProfile = true, followed = false }) => {
       </View>
       {/* button action*/}
       <View style={[styles.buttonGroup]}>
-        <Button size='medium'>Edit Profile</Button>
+        {
+          myProfile && <Button size='medium'>Edit Profile</Button>
+        }
         {
           !myProfile && <>
             <Button size='medium' style={{ marginRight: 10 }}>Follow</Button>
