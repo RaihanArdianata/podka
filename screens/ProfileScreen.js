@@ -7,10 +7,12 @@ import { StatusBar } from 'expo-status-bar';
 
 const CARD_WIDTH = width * 0.80;
 
-function ProfileScreen() {
+function ProfileScreen({ route }) {
+  const params = route.params;
+
   return (
     <View style={{ flex: 1, backgroundColor: '#F9F9F9' }}>
-      <TabTest />
+      <TabTest data={params} />
     </View>
   );
 }

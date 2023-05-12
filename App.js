@@ -10,6 +10,7 @@ import BottomNav from './navigations/BottomNav';
 import { MaterialCommunityIconsIconsPack } from './components/Icons/material-community-icons-provider';
 import StatusScreen from './screens/root/StatusScreen';
 import AudioRoom from './screens/feature-room/AudioRoom';
+import ProfileScreen from './screens/ProfileScreen';
 
 // const MoreIcon = (props) => (
 //   <Icon

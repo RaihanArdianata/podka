@@ -74,6 +74,7 @@ function TabItem({
 }
 
 const TabsProfile = React.forwardRef(({ emptyContacts, ...props }, ref) => {
+  console.log(props);
 
   const makeLabel = useCallback(
     (label) => (props) => (
@@ -87,7 +88,7 @@ const TabsProfile = React.forwardRef(({ emptyContacts, ...props }, ref) => {
   );
 
   return (
-    <Tabs.Container ref={ref} renderHeader={HeaderProfile} {...props}>
+    <Tabs.Container ref={ref} renderHeader={() => <HeaderProfile {...props.data} />} {...props}>
       <Tabs.Tab name="posts" label={makeLabel('Posts')}>
         <Albums />
       </Tabs.Tab>
