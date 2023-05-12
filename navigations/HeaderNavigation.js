@@ -30,8 +30,9 @@ export default HeaderNavigations;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight * 1.5,
     paddingVertical: 10,
+    backgroundColor: '#F9F9F9'
     // height: 40
   },
   icon: {

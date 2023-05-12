@@ -24,7 +24,7 @@ const LensIcon = (props) => (
 const HeaderSearch = () => {
   // const [value, setValue] = useState('');
   return (
-    <View style={{ ...styles.container, paddingHorizontal: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ ...styles.container, paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
       <Button
         style={{ borderRadius: 20 }}
         appearance='ghost'
@@ -35,7 +35,7 @@ const HeaderSearch = () => {
         value={''}
         placeholder='Place your Text'
         accessoryLeft={LensIcon}
-        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10 }}
+        style={{ width: Dimensions.get('window').width - ((30 * 2) + 25), borderRadius: 10, backgroundColor: '#ffffff' }}
       // onChangeText={nextValue => setValue(nextValue)}
       />
     </View>
@@ -44,7 +44,8 @@ const HeaderSearch = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight * 1.5,
+    backgroundColor: '#F9F9F9',
     paddingVertical: 10,
     // height: 40
   },

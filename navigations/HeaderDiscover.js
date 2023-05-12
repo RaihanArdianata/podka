@@ -3,11 +3,11 @@ import React from 'react';
 import Constants from 'expo-constants';
 import { Button, Icon, Input } from '@ui-kitten/components';
 
-const BookmarkIcon = (props) => (
+const BellIcon = (props) => (
   <Icon
     style={styles.icon}
     fill='#000'
-    name='bookmark-outline'
+    name='bell-outline'
   />
 );
 
@@ -21,9 +21,9 @@ const LensIcon = (props) => (
   </TouchableWithoutFeedback>
 );
 
-const HeaderStore = () => {
+const HeaderDiscover = () => {
   return (
-    <View style={{ ...styles.container, paddingHorizontal: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ ...styles.container, paddingHorizontal: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F9F9F9' }}>
       <Input
         value={''}
         placeholder='Place your Text'
@@ -34,7 +34,7 @@ const HeaderStore = () => {
       <Button
         style={{ borderRadius: 20 }}
         appearance='ghost'
-        accessoryLeft={BookmarkIcon}
+        accessoryLeft={BellIcon}
         size="tiny"
       />
     </View>
@@ -44,9 +44,8 @@ const HeaderStore = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight * 1.5,
-    paddingVertical: 10,
+    paddingVertical: 20,
     // height: 40
-    backgroundColor: '#F9F9F9',
   },
   icon: {
     width: 25,
@@ -55,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HeaderStore;
+export default HeaderDiscover;

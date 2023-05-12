@@ -1,14 +1,16 @@
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, RefreshControl } from 'react-native';
 import React, { useState } from 'react';
 import { Layout } from '@ui-kitten/components/ui';
 import StoreCard from '../components/StoreCard';
 import Pill from '../components/Pill';
+import { useRefresh } from '../components/useRefresh';
 
 const categoryData = ['Clothes', 'Accessorise', 'Device', 'Book', 'Technology'];
 
 const productData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const StoreScreen = () => {
+  const [isRefreshing, startRefreshing] = useRefresh();
   const [selectedCategory, setSelectedCategory] = useState('');
 
   const setCategory = (value) => {
@@ -17,8 +19,8 @@ const StoreScreen = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+    <View style={{ flex: 1, backgroundColor: '#F9F9F9', }}>
+      <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={startRefreshing} />}>
         <Layout style={styles.container}>
           <View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ paddingHorizontal: 24, marginTop: 10 }}>
@@ -38,13 +40,12 @@ const StoreScreen = () => {
           </View>
         </Layout>
       </ScrollView>
-    </SafeAreaView >
+    </View >
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop: Constants.statusBarHeight,
     flex: 1,
     backgroundColor: 'transparent',
   },

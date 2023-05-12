@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
 import {
   Tabs,
+
 } from 'react-native-collapsible-tab-view';
 import Animated, {
   interpolate,
@@ -9,6 +10,7 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated';
 import HeaderProfile from './HeaderProfile';
+import Constants from 'expo-constants';
 
 import Albums from './Albums';
 
@@ -43,16 +45,16 @@ function TabItem({
     return {
       fontWeight:
         Math.abs(index - indexDecimal.value) < 0.5 ? 'bold' : undefined,
-      // transform: [
-      //   {
-      //     translateX: interpolate(
-      //       indexDecimal.value,
-      //       [index - 1, index, index + 1],
-      //       [0, 8, 0],
-      //       Animated.Extrapolate.CLAMP
-      //     ),
-      //   },
-      // ],
+      transform: [
+        {
+          translateX: interpolate(
+            indexDecimal.value,
+            [index - 1, index, index + 1],
+            [0, 8, 0],
+            Animated.Extrapolate.CLAMP
+          ),
+        },
+      ],
       color: interpolateColor(
         indexDecimal.value,
         [index - 1, index, index + 1],
@@ -108,6 +110,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   tabItemContainer: {
+    // height: Constants.statusBarHeight * 2,
+    // height: 120,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
