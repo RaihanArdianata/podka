@@ -12,11 +12,11 @@ const CalendarScreen = () => {
   return (
     <View style={[styles.root]}>
       <ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={startRefreshing} style={{ paddingHorizontal: 10, marginVertical: 5 }} />}>
+        <Calendar
+          date={date}
+          onSelect={nextDate => setDate(nextDate)}
+        />
         <View style={{ paddingHorizontal: 24, marginTop: 30 }}>
-          <Calendar
-            date={date}
-            onSelect={nextDate => setDate(nextDate)}
-          />
         </View>
       </ScrollView>
     </View>
