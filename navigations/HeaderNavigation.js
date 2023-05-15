@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from '../assets/logo.svg';
 import Constants from 'expo-constants';
 import { Button, Icon } from '@ui-kitten/components';
+import { useNavigation } from '@react-navigation/core';
 
 const BellIcon = (props) => (
   <Icon
@@ -11,17 +12,35 @@ const BellIcon = (props) => (
     name='bell-outline'
   />
 );
+const CalendarIcon = (props) => (
+  <Icon
+    style={styles.icon}
+    fill='#000'
+    name='calendar-account-outline'
+  />
+);
 
 const HeaderNavigations = () => {
+  const navigation = useNavigation();
   return (
     <View style={{ ...styles.container, paddingHorizontal: 24, paddingVertical: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
       <Logo />
-      <Button
-        style={{ borderRadius: 20 }}
-        appearance='ghost'
-        accessoryLeft={BellIcon}
-        size="tiny"
-      />
+      <View style={[styles.buttonWrapper]}>
+        <Button
+          style={{ borderRadius: 20 }}
+          appearance='ghost'
+          accessoryLeft={BellIcon}
+          size="tiny"
+          onPress={() => navigation.navigate("Notification")}
+        />
+        <Button
+          style={{ borderRadius: 20 }}
+          appearance='ghost'
+          accessoryLeft={CalendarIcon}
+          size="tiny"
+          onPress={() => navigation.navigate("Calendar")}
+        />
+      </View>
     </View>
   );
 };
@@ -29,6 +48,10 @@ const HeaderNavigations = () => {
 export default HeaderNavigations;
 
 const styles = StyleSheet.create({
+  buttonWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   container: {
     paddingTop: Constants.statusBarHeight * 1.5,
     paddingVertical: 10,

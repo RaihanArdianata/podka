@@ -8,12 +8,30 @@ import DividerCustom from '../DividerCustom';
 const { width, height } = Dimensions.get('window');
 
 const CARD_WIDTH = width * 0.80;
-const CommentRwquestIcon = (props) => {
+const CommentRequestIcon = (props) => {
   return (
     <Icon
       {...props}
       style={[styles.iconTiny,]}
       name='comment-question-outline'
+    />
+  );
+};
+const CrownIcon = (props) => {
+  return (
+    <Icon
+      {...props}
+      style={[styles.iconTiny, { color: '#fec849' }]}
+      name='crown'
+    />
+  );
+};
+const AccountVoiceIcon = (props) => {
+  return (
+    <Icon
+      {...props}
+      style={[styles.iconTiny]}
+      name='account-voice'
     />
   );
 };
@@ -23,14 +41,26 @@ const HeaderProfile = ({ myProfile = true, followed = false }) => {
     <View style={{ paddingHorizontal: 24, justifyContent: 'center', alignItems: 'center', }}>
       {/* bio */}
       <View style={[{ justifyContent: 'center', alignItems: 'center' }]}>
-        <AvatarCustom style={styles.avatar} source={{ uri: faker.image.business(1234, 2345, true) }} />
+        <Button
+          style={{ borderRadius: 20, mb: 15 }}
+          appearance='ghost'
+          accessoryLeft={CrownIcon}
+          size="tiny"
+        />
+        <AvatarCustom style={styles.avatar} source={{ uri: faker.image.avatar(1234, 2345, true) }} />
         <View style={[styles.nameWraper]}>
           <Text category='h6' style={[styles.styleText,
           {}]}>{faker.name.fullName()}</Text>
           {!myProfile && <Button
             style={{ borderRadius: 20 }}
             appearance='ghost'
-            accessoryLeft={CommentRwquestIcon}
+            accessoryLeft={AccountVoiceIcon}
+            size="tiny"
+          />}
+          {myProfile && <Button
+            style={{ borderRadius: 20 }}
+            appearance='ghost'
+            accessoryLeft={CommentRequestIcon}
             size="tiny"
           />}
         </View>
@@ -79,7 +109,8 @@ const styles = StyleSheet.create({
     // height: 40
   },
   nameWraper: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   container: {
     // paddingTop: Constants.statusBarHeight,
