@@ -16,7 +16,7 @@ const CalendarIcon = (props) => (
   <Icon
     style={styles.icon}
     fill='#000'
-    name='calendar-account-outline'
+    name='calendar-blank'
   />
 );
 
@@ -29,16 +29,16 @@ const HeaderNavigations = () => {
         <Button
           style={{ borderRadius: 20 }}
           appearance='ghost'
-          accessoryLeft={BellIcon}
+          accessoryLeft={CalendarIcon}
           size="tiny"
-          onPress={() => navigation.navigate("Notification")}
+          onPress={() => navigation.navigate("Calendar")}
         />
         <Button
           style={{ borderRadius: 20 }}
           appearance='ghost'
-          accessoryLeft={CalendarIcon}
+          accessoryLeft={BellIcon}
           size="tiny"
-          onPress={() => navigation.navigate("Calendar")}
+          onPress={() => navigation.navigate("Notification")}
         />
       </View>
     </View>
