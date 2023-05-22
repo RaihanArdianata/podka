@@ -46,7 +46,7 @@ export default HeaderProfile;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight * 1.5,
+    // paddingTop: Constants.statusBarHeight * 1.5,
     paddingVertical: 10,
     backgroundColor: '#ffffff'
     // height: 40

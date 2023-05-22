@@ -80,7 +80,6 @@ const BottomNav = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // height: Constants.statusBarHeight,
     backgroundColor: '#fff'
   },
 });

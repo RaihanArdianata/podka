@@ -43,7 +43,7 @@ const HeaderDiscover = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight * 1.5,
+    // paddingTop: Constants.statusBarHeight * 1.5,
     paddingVertical: 20,
     // height: 40
   },

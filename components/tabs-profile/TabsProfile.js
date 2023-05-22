@@ -111,8 +111,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   tabItemContainer: {
-    // height: Constants.statusBarHeight * 2,
-    // height: 120,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
