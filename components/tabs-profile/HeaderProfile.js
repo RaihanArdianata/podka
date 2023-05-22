@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   container: {
-    // paddingTop: Constants.statusBarHeight,
     backgroundColor: 'transparent'
   },
   avatar: {

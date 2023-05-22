@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   container: {
-    paddingTop: Constants.statusBarHeight * 1.5,
+    // paddingTop: Constants.statusBarHeight * 1.5,
     paddingVertical: 10,
     backgroundColor: '#F9F9F9'
     // height: 40

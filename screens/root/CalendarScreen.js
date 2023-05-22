@@ -40,7 +40,11 @@ const CalendarScreen = () => {
   const [range, setRange] = useState({});
 
   const minMaxCalendarState = useCalendarState();
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  const randomColor = (param) => Math.floor(Math.random() * 16777215 + param).toString(16);
+
+  useEffect(() => {
+
+  }, [selectedDate]);
 
   return (
     <View style={[styles.root]}>
@@ -48,20 +52,20 @@ const CalendarScreen = () => {
         <Calendar
           date={selectedDate}
           onSelect={nextDate => setDate(nextDate)}
-          style={[{ width: '100%', borderBottomWidth: 0 }]}
+          style={[{ width: '100%', borderBottomWidth: 0, }]}
           renderDay={({ date, holiday, bounding, range }) => {
             const data = _.filter(sampleData, function (o) {
               return dayjs(dayjs(o.date)).isSame(dayjs(date), 'date');
             });
 
             return (
-              <View style={[data.length > 0 && styles.selectedDate, { flexDirection: 'column' }]}>
-                <Text style={[{ textAlign: 'center' }]}>{date.getDate()}</Text>
-                <View style={[{ flexDirection: 'row', flexGrow: 1, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 2, }]}>
+              <View className={`rounded-full ${dayjs(dayjs(selectedDate)).isSame(dayjs(date), 'date') && 'bg-blue-200'}`} style={[dayjs(dayjs(selectedDate)).isSame(dayjs(date), 'date') && styles.selectedDate, { flexDirection: 'column', flexGrow: 1, justifyContent: 'center', alignItems: 'center', alignContent: 'center' }]}>
+                <Text style={[{ textAlign: 'center', }]}>{date.getDate()}</Text>
+                <View className="gap-x-1" style={[{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }]}>
                   {
-                    data.map(() => {
+                    data.map((_, index) => {
                       return (
-                        <View style={[styles.dot]}>
+                        <View key={index} style={[styles.dot, { backgroundColor: `#${randomColor(index)}` }]}>
                         </View>
                       );
                     })
@@ -75,7 +79,7 @@ const CalendarScreen = () => {
         // max={tomorrow}
         // {...minMaxCalendarState}
         />
-        <View style={{ paddingHorizontal: 24, marginTop: 30 }}>
+        <View className="bg-slate-100 h-1 w-screen" style={{ paddingHorizontal: 24, marginTop: 30 }}>
         </View>
       </ScrollView>
     </View>
@@ -92,14 +96,15 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   selectedDate: {
-    borderWidth: 1,
-    backgroundColor: 'green'
+    borderRadius: 100,
+    color: '#3b82f6',
+    borderColor: 'green',
   },
   dot: {
     borderWidth: 1,
     borderRadius: 100,
-    borderColor: 'blue',
-    backgroundColor: 'blue',
+    // borderColor: 'blue',
+    // backgroundColor: 'blue',
     height: 5,
     width: 5,
     // marginHorizontal: ,

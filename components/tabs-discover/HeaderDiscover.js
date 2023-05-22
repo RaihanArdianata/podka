@@ -48,7 +48,6 @@ const HeaderProfile = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: Constants.statusBarHeight + 10,
     backgroundColor: 'transparent'
   },
   avatar: {
