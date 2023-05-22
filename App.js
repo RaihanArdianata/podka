@@ -13,6 +13,7 @@ import AudioRoom from './screens/feature-room/AudioRoom';
 import ProfileScreen from './screens/ProfileScreen';
 import NotificationScreen from './screens/root/NotificationScreen';
 import CalendarScreen from './screens/root/CalendarScreen';
+import HotPodScreen from './screens/HotPodScreen';
 
 // const MoreIcon = (props) => (
 //   <Icon
@@ -73,6 +74,19 @@ export default function App() {
               },
             }} />
             <Stack.Screen name="Calendar" component={CalendarScreen} options={{
+              title: 'Calendar',
+              headerShown: true,
+              animation: 'fade',
+              config: {
+                stiffness: 1000,
+                damping: 500,
+                mass: 3,
+                overshootClamping: true,
+                restDisplacementThreshold: 0.01,
+                restSpeedThreshold: 0.01,
+              },
+            }} />
+            <Stack.Screen name="HotPod" component={HotPodScreen} options={{
               title: 'Calendar',
               headerShown: true,
               animation: 'fade',
