@@ -13,6 +13,7 @@ import Constants from 'expo-constants';
 import DiscoverScreen from '../screens/DiscoverScreen';
 import HeaderDiscover from './HeaderDiscover';
 import HeaderProfile from './HeaderProfile';
+import HotPodScreen from '../screens/HotPodScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +38,7 @@ const BottomNav = () => {
       >
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
+          component={HotPodScreen}
           options={{
             header: HeaderNavigations
           }}

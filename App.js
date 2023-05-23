@@ -14,6 +14,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import NotificationScreen from './screens/root/NotificationScreen';
 import CalendarScreen from './screens/root/CalendarScreen';
 import HotPodScreen from './screens/HotPodScreen';
+import Modal from './components/Modal';
 
 // const MoreIcon = (props) => (
 //   <Icon
@@ -102,6 +103,7 @@ export default function App() {
             {/* <Stack.Screen name="HomeTabs" component={BottomNavigation} /> */}
           </Stack.Navigator>
           {/* <BottomNavigation /> */}
+          <Modal />
         </NavigationContainer>
       </ApplicationProvider>
     </>
