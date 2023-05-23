@@ -100,9 +100,7 @@ export default function App() {
                 restSpeedThreshold: 0.01,
               },
             }} />
-            {/* <Stack.Screen name="HomeTabs" component={BottomNavigation} /> */}
           </Stack.Navigator>
-          {/* <BottomNavigation /> */}
           <Modal />
         </NavigationContainer>
       </ApplicationProvider>
