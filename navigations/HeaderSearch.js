@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableWithoutFeedback, Dimensions } from 're
 import React, { useState } from 'react';
 import { Button, Icon, Input } from '@ui-kitten/components';
 import Constants from 'expo-constants';
+import { useNavigation } from '@react-navigation/core';
 
 const ArrowIcon = (props) => (
   <Icon
@@ -22,6 +23,7 @@ const LensIcon = (props) => (
 );
 
 const HeaderSearch = () => {
+  const navigation = useNavigation();
   // const [value, setValue] = useState('');
   return (
     <View style={{ ...styles.container, paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -30,6 +32,7 @@ const HeaderSearch = () => {
         appearance='ghost'
         accessoryLeft={ArrowIcon}
         size="tiny"
+        onPress={() => navigation.navigate('Home')}
       />
       <Input
         value={''}

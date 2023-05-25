@@ -14,6 +14,7 @@ import DiscoverScreen from '../screens/DiscoverScreen';
 import HeaderDiscover from './HeaderDiscover';
 import HeaderProfile from './HeaderProfile';
 import HotPodScreen from '../screens/HotPodScreen';
+import NotificationScreen from '../screens/root/NotificationScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -45,10 +46,10 @@ const BottomNav = () => {
           }}
         />
         <Tab.Screen
-          name="Search"
-          component={SearchScreen}
+          name="Store"
+          component={StoreScreen}
           options={{
-            header: HeaderSearch
+            header: HeaderStore
           }}
         />
         <Tab.Screen
@@ -57,14 +58,13 @@ const BottomNav = () => {
           options={{
             // header: () => <View style={{ height: Constants.statusBarHeight, backgroundColor: '#F9F9F9' }}></View>,
             header: HeaderDiscover,
-            // headerShown: false
           }}
         />
         <Tab.Screen
-          name="Store"
-          component={StoreScreen}
+          name="Inbox"
+          component={NotificationScreen}
           options={{
-            header: HeaderStore
+            headerTitle: 'Message'
           }}
         />
         <Tab.Screen
