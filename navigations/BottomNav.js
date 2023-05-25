@@ -40,7 +40,8 @@ const BottomNav = () => {
           name="Home"
           component={HotPodScreen}
           options={{
-            header: HeaderNavigations
+            header: HeaderNavigations,
+            headerShown: false
           }}
         />
         <Tab.Screen

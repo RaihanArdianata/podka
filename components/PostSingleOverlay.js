@@ -1,4 +1,4 @@
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions, Text as RNtext } from 'react-native';
 import { Text, Avatar, Button, Icon } from '@ui-kitten/components';
 import React from 'react';
 import { faker } from '@faker-js/faker';
@@ -32,26 +32,49 @@ const Chat = (props) => {
     />
   );
 };
+const Bookmark = (props) => {
+  return (
+    <Icon
+      {...props}
+      style={[styles.iconTiny,]}
+      name='bookmark-minus'
+    />
+  );
+};
 
 const PostSingleOverlay = () => {
   const dispatch = useDispatch();
   return (
     <View style={[styles.container]}>
       <View style={[styles.informationWrapper]}>
-        <Text style={[styles.displayName]}>{faker.internet.userName()}</Text>
-        <Text style={[styles.description, { maxWidth: Dimensions.get('window').width * (50 / 100) }]}>{faker.commerce.productDescription()}</Text>
+        <View style={[{ alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' }]}>
+          <View style={[styles.accountNameWrapper]}>
+            <Avatar
+              style={styles.avatar}
+              size='small'
+              source={{ uri: faker.image.avatar(250, 250, true) }}
+            />
+            <Text style={[styles.displayName]}>{faker.internet.userName()}</Text>
+          </View>
+          <Button
+            style={[{ marginLeft: 10, borderColor: 'white' }]}
+            appearance='outline'
+            size='tiny'
+            status='control'
+          ><RNtext style={{ color: 'white' }}>Follow</RNtext></Button>
+        </View>
+        <Text style={[styles.description, { maxWidth: Dimensions.get('window').width * (60 / 100) }]}>{faker.commerce.productDescription()}</Text>
       </View>
       <View style={[{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }]}>
-        <Avatar
-          style={styles.avatar}
-          size='giant'
-          source={{ uri: faker.image.avatar(250, 250, true) }}
-        />
         <Button
           style={[{ marginTop: 16, borderRadius: 99999 }]}
           appearance='ghost'
           accessoryLeft={ShareOutline}
-        // size="large"
+        />
+        <Button
+          style={[{ marginTop: 16, borderRadius: 99999 }]}
+          appearance='ghost'
+          accessoryLeft={Bookmark}
         />
         <View style={{ flexDirection: 'column', alignItems: 'center', marginTop: 16, }}>
           <Button
@@ -59,7 +82,6 @@ const PostSingleOverlay = () => {
             appearance='ghost'
             accessoryLeft={Chat}
             onPress={() => dispatch(openCommentModal({ open: true, sheetType: 0, data: [] }))}
-          // size="large"
           />
           <Text style={{ color: '#ffffff' }}>{faker.finance.account(3)}</Text>
         </View>
@@ -68,7 +90,6 @@ const PostSingleOverlay = () => {
             style={[{ borderRadius: 99999 }]}
             appearance='ghost'
             accessoryLeft={Heart}
-          // size="large"
           />
           <Text style={{ color: '#ffffff' }}>{faker.finance.account(3)}</Text>
         </View>
@@ -92,14 +113,21 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     bottom: 0,
   },
+  accountNameWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   displayName: {
+    marginLeft: 10,
     color: '#ffffff',
     fontWeight: 'bold',
-    fontSize: 16
+    fontSize: 14
   },
   description: {
     color: '#ffffff',
-    marginTop: 10
+    marginTop: 10,
+    fontSize: 12,
   },
   avatar: {
     borderWidth: 1,
