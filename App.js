@@ -14,7 +14,10 @@ import ProfileScreen from './screens/ProfileScreen';
 import NotificationScreen from './screens/root/NotificationScreen';
 import CalendarScreen from './screens/root/CalendarScreen';
 import HotPodScreen from './screens/HotPodScreen';
-import Modal from './components/Modal';
+import Modal from './components/actionSheet';
+import { Provider } from 'react-redux';
+import store from './redux';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 // const MoreIcon = (props) => (
 //   <Icon
@@ -29,83 +32,85 @@ export default function App() {
 
   return (
     <>
-      <IconRegistry icons={MaterialCommunityIconsIconsPack} />
-      <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }} customMapping={mapping}>
-        <NavigationContainer >
-          <Stack.Navigator initialRouteName={"HomeTabs"} screenOptions={{ headerShown: true }}>
-            <Stack.Screen name="HomeTabs" component={BottomNav} options={{
-              headerShown: false
-            }} />
-            <Stack.Screen name="Status" component={StatusScreen} options={{
-              headerShown: false,
-              animation: 'fade',
-              config: {
-                stiffness: 1000,
-                damping: 500,
-                mass: 3,
-                overshootClamping: true,
-                restDisplacementThreshold: 0.01,
-                restSpeedThreshold: 0.01,
-              },
-            }} />
-            <Stack.Screen name="AudioRoom" component={AudioRoom} options={{
-              title: 'Audio Room',
-              headerShown: true,
-              animation: 'fade',
-              config: {
-                stiffness: 1000,
-                damping: 500,
-                mass: 3,
-                overshootClamping: true,
-                restDisplacementThreshold: 0.01,
-                restSpeedThreshold: 0.01,
-              },
-            }} />
-            <Stack.Screen name="Notification" component={NotificationScreen} options={{
-              title: 'Notification',
-              headerShown: true,
-              animation: 'fade',
-              config: {
-                stiffness: 1000,
-                damping: 500,
-                mass: 3,
-                overshootClamping: true,
-                restDisplacementThreshold: 0.01,
-                restSpeedThreshold: 0.01,
-              },
-            }} />
-            <Stack.Screen name="Calendar" component={CalendarScreen} options={{
-              title: 'Calendar',
-              headerShown: true,
-              animation: 'fade',
-              config: {
-                stiffness: 1000,
-                damping: 500,
-                mass: 3,
-                overshootClamping: true,
-                restDisplacementThreshold: 0.01,
-                restSpeedThreshold: 0.01,
-              },
-            }} />
-            <Stack.Screen name="HotPod" component={HotPodScreen} options={{
-              title: 'Calendar',
-              headerShown: true,
-              animation: 'fade',
-              config: {
-                stiffness: 1000,
-                damping: 500,
-                mass: 3,
-                overshootClamping: true,
-                restDisplacementThreshold: 0.01,
-                restSpeedThreshold: 0.01,
-              },
-            }} />
-            {/* <Stack.Screen name="HomeTabs" component={BottomNavigation} /> */}
-          </Stack.Navigator>
-          {/* <BottomNavigation /> */}
-          <Modal />
-        </NavigationContainer>
-      </ApplicationProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>{/* content */}
+        <Provider store={store}>
+          <IconRegistry icons={MaterialCommunityIconsIconsPack} />
+          <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }} customMapping={mapping}>
+            <NavigationContainer >
+              <Stack.Navigator initialRouteName={"HomeTabs"} screenOptions={{ headerShown: true }}>
+                <Stack.Screen name="HomeTabs" component={BottomNav} options={{
+                  headerShown: false
+                }} />
+                <Stack.Screen name="Status" component={StatusScreen} options={{
+                  headerShown: false,
+                  animation: 'fade',
+                  config: {
+                    stiffness: 1000,
+                    damping: 500,
+                    mass: 3,
+                    overshootClamping: true,
+                    restDisplacementThreshold: 0.01,
+                    restSpeedThreshold: 0.01,
+                  },
+                }} />
+                <Stack.Screen name="AudioRoom" component={AudioRoom} options={{
+                  title: 'Audio Room',
+                  headerShown: true,
+                  animation: 'fade',
+                  config: {
+                    stiffness: 1000,
+                    damping: 500,
+                    mass: 3,
+                    overshootClamping: true,
+                    restDisplacementThreshold: 0.01,
+                    restSpeedThreshold: 0.01,
+                  },
+                }} />
+                <Stack.Screen name="Notification" component={NotificationScreen} options={{
+                  title: 'Notification',
+                  headerShown: true,
+                  animation: 'fade',
+                  config: {
+                    stiffness: 1000,
+                    damping: 500,
+                    mass: 3,
+                    overshootClamping: true,
+                    restDisplacementThreshold: 0.01,
+                    restSpeedThreshold: 0.01,
+                  },
+                }} />
+                <Stack.Screen name="Calendar" component={CalendarScreen} options={{
+                  title: 'Calendar',
+                  headerShown: true,
+                  animation: 'fade',
+                  config: {
+                    stiffness: 1000,
+                    damping: 500,
+                    mass: 3,
+                    overshootClamping: true,
+                    restDisplacementThreshold: 0.01,
+                    restSpeedThreshold: 0.01,
+                  },
+                }} />
+                <Stack.Screen name="HotPod" component={HotPodScreen} options={{
+                  title: 'Calendar',
+                  headerShown: true,
+                  animation: 'fade',
+                  config: {
+                    stiffness: 1000,
+                    damping: 500,
+                    mass: 3,
+                    overshootClamping: true,
+                    restDisplacementThreshold: 0.01,
+                    restSpeedThreshold: 0.01,
+                  },
+                }} />
+              </Stack.Navigator>
+              <Modal />
+            </NavigationContainer>
+          </ApplicationProvider>
+        </Provider>
+      </GestureHandlerRootView>
     </>
   );
 }

@@ -2,6 +2,8 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 import { Text, Avatar, Button, Icon } from '@ui-kitten/components';
 import React from 'react';
 import { faker } from '@faker-js/faker';
+import { useDispatch } from 'react-redux';
+import { openCommentModal } from '../redux/slices/actionSheetSlice';
 
 const Heart = (props) => {
   return (
@@ -32,6 +34,7 @@ const Chat = (props) => {
 };
 
 const PostSingleOverlay = () => {
+  const dispatch = useDispatch();
   return (
     <View style={[styles.container]}>
       <View style={[styles.informationWrapper]}>
@@ -55,6 +58,7 @@ const PostSingleOverlay = () => {
             style={[{ borderRadius: 99999 }]}
             appearance='ghost'
             accessoryLeft={Chat}
+            onPress={() => dispatch(openCommentModal({ open: true, sheetType: 0, data: [] }))}
           // size="large"
           />
           <Text style={{ color: '#ffffff' }}>{faker.finance.account(3)}</Text>
