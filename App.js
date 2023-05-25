@@ -18,6 +18,8 @@ import Modal from './components/actionSheet';
 import { Provider } from 'react-redux';
 import store from './redux';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import SearchScreen from './screens/SearchScreen';
+import HeaderSearch from './navigations/HeaderSearch';
 
 // const MoreIcon = (props) => (
 //   <Icon
@@ -96,6 +98,19 @@ export default function App() {
                   title: 'Calendar',
                   headerShown: true,
                   animation: 'fade',
+                  config: {
+                    stiffness: 1000,
+                    damping: 500,
+                    mass: 3,
+                    overshootClamping: true,
+                    restDisplacementThreshold: 0.01,
+                    restSpeedThreshold: 0.01,
+                  },
+                }} />
+                <Stack.Screen name="SearchProfile" component={SearchScreen} options={{
+                  headerShown: true,
+                  animation: 'fade',
+                  header: HeaderSearch,
                   config: {
                     stiffness: 1000,
                     damping: 500,

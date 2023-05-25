@@ -8,7 +8,6 @@ import { useMemo } from 'react';
 
 const Modal = () => {
   const sheetState = useSelector(selectSheet);
-  const state = useSelector(state => state);
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ['50%', '100%'], []);
 
@@ -22,11 +21,7 @@ const Modal = () => {
   const renderContent = () => {
     switch (sheetState.sheetType) {
       case 0:
-        return (<>
-          <Pressable onPress={() => console.log('ok')} style={{ backgroundColor: 'green' }}>
-            <Text>Test</Text>
-          </Pressable>
-        </>);
+        return (<></>);
       default:
         return (<></>);
     }

@@ -7,6 +7,7 @@ import { useImperativeHandle } from 'react';
 import { useEffect } from 'react';
 import PostSingleOverlay from './PostSingleOverlay';
 import PostSingleVoteOverlay from './PostSingleVoteOverlay';
+import PostSingleSearch from './PostSingleSearch';
 
 const PostSingle = forwardRef((props, parentsRef) => {
   const ref = useRef(null);
@@ -69,7 +70,7 @@ const PostSingle = forwardRef((props, parentsRef) => {
 
   return (
     <>
-      <PostSingleVoteOverlay />
+      <PostSingleSearch />
       <PostSingleOverlay />
       <Video
         ref={ref}

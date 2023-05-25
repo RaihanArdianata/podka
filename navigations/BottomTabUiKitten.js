@@ -1,9 +1,10 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 import React, { useState } from 'react';
-import { BottomNavigation, BottomNavigationTab, Icon } from '@ui-kitten/components';
+import { BottomNavigation, BottomNavigationTab, Button, Icon } from '@ui-kitten/components';
 import Lottie from 'lottie-react-native';
 import { useRef } from 'react';
 import soundWaveAnimate from '../assets/sound-wave.json';
+import PodLogo from '../assets/podLogo.svg';
 
 const homeIcon = (props) => {
   return (
@@ -14,12 +15,12 @@ const homeIcon = (props) => {
     />
   );
 };
-const searchIcon = (props) => {
+const chatIcon = (props) => {
   return (
     <Icon
       {...props}
       // style={[styles.iconTiny]}
-      name='magnify'
+      name='message-text'
     />
   );
 };
@@ -27,8 +28,8 @@ const discoverIcon = (props) => {
   const animation = useRef(null);
 
   return (
-    <View style={{ justifyContent: 'center', alignItems: 'center', width: 50, height: 50, borderRadius: 25, backgroundColor: props.style.tintColor }}>
-      <Lottie
+    <View style={{ justifyContent: 'center', alignItems: 'center', borderRadius: 25 }}>
+      {/* <Lottie
         autoPlay
         loop
         ref={animation}
@@ -37,13 +38,14 @@ const discoverIcon = (props) => {
 
         }}
         source={soundWaveAnimate}
-      />
+      /> */}
       {/* <Icon
         {...props}
         style={[styles.iconTiny]}
         fill={'#fff'}
         name='waveform'
       /> */}
+      <PodLogo width={30} height={25} />
     </View>
   );
 };
@@ -71,13 +73,13 @@ const BottomTabUiKitten = ({ navigation, state }) => {
   return (
     <BottomNavigation
       selectedIndex={state.index}
-      style={{ paddingVertical: 20 }}
+      style={{ paddingVertical: 10 }}
       appearance="noIndicator"
       onSelect={index => navigation.navigate(state.routeNames[index])}>
       <BottomNavigationTab title='Home' icon={homeIcon} />
-      <BottomNavigationTab title='Search' icon={searchIcon} />
-      <BottomNavigationTab icon={discoverIcon} />
       <BottomNavigationTab title='Store' icon={storeIcon} />
+      <BottomNavigationTab title='Live' icon={discoverIcon} />
+      <BottomNavigationTab title='Message' icon={chatIcon} />
       <BottomNavigationTab title='Profile' icon={profileIcon} />
     </BottomNavigation>
   );
