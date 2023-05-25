@@ -55,5 +55,6 @@
   "color-danger-600": "#DB4F58",
   "color-danger-700": "#B7364A",
   "color-danger-800": "#93223D",
-  "color-danger-900": "#7A1435"
+  "color-danger-900": "#7A1435",
+  "color-white-100": "#ffffff"
 }
