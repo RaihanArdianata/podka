@@ -63,7 +63,7 @@ const NotificationScreen = () => {
         <Text style={[styles.textTitle]}>This week</Text>
         {
           data2.map(({ message, type }, index) => (
-            <View style={{ paddingHorizontal: 24, marginTop: 15 }}>
+            <View key={index} style={{ marginTop: 15 }}>
               {/* profile */}
               <View style={[styles.profileContainer]}>
                 <View style={{ alignItems: 'center', flexDirection: 'row' }}>
@@ -93,7 +93,7 @@ const NotificationScreen = () => {
         <Text style={[styles.textTitle]}>Suggested for you</Text>
         {
           data.map(({ message, type }, index) => {
-            return (<View key={index} style={{ paddingHorizontal: 24, marginTop: 15 }}>
+            return (<View key={index} style={{ marginTop: 15 }}>
               {/* profile */}
               <View style={[styles.profileContainer]}>
                 <View style={{ alignItems: 'center', flexDirection: 'row' }}>
