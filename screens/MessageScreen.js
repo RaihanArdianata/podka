@@ -3,6 +3,9 @@ import React from 'react';
 import { useRefresh } from '../components/useRefresh';
 import { Avatar, Button, Text } from '@ui-kitten/components';
 import { faker } from '@faker-js/faker';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+dayjs.extend(relativeTime);
 
 const MessageScreen = () => {
   const [isRefreshing, startRefreshing] = useRefresh();
@@ -21,17 +24,9 @@ const MessageScreen = () => {
               />
               <View style={[{ justifyContent: 'center' }]}>
                 <Text style={[styles.displayName]}>{faker.internet.userName()}</Text>
-                <Text style={[{ marginLeft: 10, fontSize: 12 }]}>test</Text>
+                <Text style={[{ marginLeft: 10, fontSize: 12 }]}>2 new message . {dayjs(new Date()).toNow()}</Text>
               </View>
             </View>
-            <Button
-              style={[{ width: 100, color: 'blue' }]}
-              appearance='outline'
-              size='tiny'
-              status='primary'
-            >
-              <Text style={{ color: 'blue' }}>Follow</Text>
-            </Button>
           </View>
         </View>
       </ScrollView>
