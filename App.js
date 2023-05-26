@@ -11,8 +11,8 @@ import { MaterialCommunityIconsIconsPack } from './components/Icons/material-com
 import StatusScreen from './screens/root/StatusScreen';
 import AudioRoom from './screens/feature-room/AudioRoom';
 import ProfileScreen from './screens/ProfileScreen';
-import NotificationScreen from './screens/root/NotificationScreen';
-import CalendarScreen from './screens/root/CalendarScreen';
+import NotificationScreen from './screens/NotificationScreen';
+import CalendarScreen from './screens/CalendarScreen';
 import HotPodScreen from './screens/HotPodScreen';
 import Modal from './components/actionSheet';
 import { Provider } from 'react-redux';
@@ -20,6 +20,7 @@ import store from './redux';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import SearchScreen from './screens/SearchScreen';
 import HeaderSearch from './navigations/HeaderSearch';
+import LiveCamera from './components/LiveCamera';
 
 // const MoreIcon = (props) => (
 //   <Icon
@@ -111,6 +112,18 @@ export default function App() {
                   headerShown: true,
                   animation: 'fade',
                   header: HeaderSearch,
+                  config: {
+                    stiffness: 1000,
+                    damping: 500,
+                    mass: 3,
+                    overshootClamping: true,
+                    restDisplacementThreshold: 0.01,
+                    restSpeedThreshold: 0.01,
+                  },
+                }} />
+                <Stack.Screen name="LiveCamera" component={LiveCamera} options={{
+                  headerShown: false,
+                  animation: 'fade',
                   config: {
                     stiffness: 1000,
                     damping: 500,

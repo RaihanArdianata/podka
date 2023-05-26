@@ -1,36 +1,37 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import React from 'react';
-import HomeScreen from '../screens/HomeScreen';
+import { Button, Icon } from '@ui-kitten/components';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import SearchScreen from '../screens/SearchScreen';
 import BottomTabUiKitten from './BottomTabUiKitten';
 import HeaderNavigations from './HeaderNavigation';
-import HeaderSearch from './HeaderSearch';
 import StoreScreen from '../screens/StoreScreen';
 import HeaderStore from './HeaderStore';
 import ProfileScreen from '../screens/ProfileScreen';
-import Constants from 'expo-constants';
-import DiscoverScreen from '../screens/DiscoverScreen';
-import HeaderDiscover from './HeaderDiscover';
 import HeaderProfile from './HeaderProfile';
 import HotPodScreen from '../screens/HotPodScreen';
-import NotificationScreen from '../screens/root/NotificationScreen';
+import LiveScreen from '../screens/LiveScreen';
+import MessageScreen from '../screens/MessageScreen';
+import Logo from '../assets/logo.svg';
 
 const Tab = createBottomTabNavigator();
 
 
-const Header = () => (
-  <View style={styles.container}>
-  </View>
-);
+const PlusBoxIcon = (props) => {
+  return (
+    <Icon
+      {...props}
+      style={[styles.iconTiny,]}
+      name='plus-box-outline'
+    />
+  );
+};
 
-const BottomNav = () => {
+const BottomNav = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <Tab.Navigator
         initialRouteName="Home"
         tabBar={props => <BottomTabUiKitten {...props} />}
-        // screenOptions={{headerShown: false}}
         safeAreaInsets={{
           bottom: 10
         }}
@@ -54,15 +55,28 @@ const BottomNav = () => {
         />
         <Tab.Screen
           name="Discover"
-          component={DiscoverScreen}
+          component={LiveScreen}
           options={{
-            // header: () => <View style={{ height: Constants.statusBarHeight, backgroundColor: '#F9F9F9' }}></View>,
-            header: HeaderDiscover,
+            // header: HeaderLive,
+            title: '',
+            headerLeft: () => <View style={{ marginLeft: 20 }}><Logo /></View>,
+            lazy: true,
+            headerRight: () => {
+              return (
+                <Button
+                  style={[{ borderRadius: 20, marginLeft: 20 }]}
+                  appearance='ghost'
+                  accessoryLeft={PlusBoxIcon}
+                  size="medium"
+                  onPress={() => navigation.navigate('LiveCamera')}
+                />
+              );
+            }
           }}
         />
         <Tab.Screen
           name="Inbox"
-          component={NotificationScreen}
+          component={MessageScreen}
           options={{
             headerTitle: 'Message'
           }}
@@ -83,6 +97,11 @@ const BottomNav = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff'
+  },
+  iconTiny: {
+    width: 25,
+    height: 25,
+    color: 'black'
   },
 });
 

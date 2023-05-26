@@ -31,7 +31,7 @@ const HotPodScreen = () => {
 
   const renderItem = ({ item, index }) => {
     return (
-      <View style={[{ flex: 1, height: Dimensions.get('window').height - 32 }, index % 2 ? { backgroundColor: 'blue' } : { backgroundColor: 'pink' }]}>
+      <View style={[{ flex: 1, height: Dimensions.get('window').height - 20 }, index % 2 ? { backgroundColor: 'blue' } : { backgroundColor: 'pink' }]}>
         <PostSingle ref={PostSingleRef => (mediaRefs.current[item] = PostSingleRef)} />
       </View>
     );
