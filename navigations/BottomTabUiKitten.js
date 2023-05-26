@@ -76,11 +76,11 @@ const BottomTabUiKitten = ({ navigation, state }) => {
       style={{ paddingVertical: 10 }}
       appearance="noIndicator"
       onSelect={index => navigation.navigate(state.routeNames[index])}>
-      <BottomNavigationTab title='Home' icon={homeIcon} />
-      <BottomNavigationTab title='Store' icon={storeIcon} />
-      <BottomNavigationTab title='Live' icon={discoverIcon} />
-      <BottomNavigationTab title='Message' icon={chatIcon} />
-      <BottomNavigationTab title='Profile' icon={profileIcon} />
+      <BottomNavigationTab icon={homeIcon} />
+      <BottomNavigationTab icon={storeIcon} />
+      <BottomNavigationTab icon={discoverIcon} />
+      <BottomNavigationTab icon={chatIcon} />
+      <BottomNavigationTab icon={profileIcon} />
     </BottomNavigation>
   );
 };

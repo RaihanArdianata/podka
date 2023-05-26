@@ -1,21 +1,23 @@
-import { View, RefreshControl, StyleSheet, ScrollView } from 'react-native';
+import { View, RefreshControl, StyleSheet, ScrollView, Text as RNtext, Dimensions } from 'react-native';
 import React from 'react';
 import { useState } from 'react';
-import { useRefresh } from '../../components/useRefresh';
-import { Calendar, Layout, RangeCalendar, Text } from '@ui-kitten/components';
+import { useRefresh } from '../components/useRefresh';
+import { Calendar, Layout, RangeCalendar, Text, Avatar, Button } from '@ui-kitten/components';
 import _ from 'lodash';
 import dayjs from 'dayjs';
 import { useEffect } from 'react';
-
+import { faker } from '@faker-js/faker';
 
 const sampleData = [
   {
-    title: 'Request Meeting',
-    date: '2023-05-05T17:00:00.000Z',
+    title: 'Your Schedule Live',
+    date: '2023-05-20T17:00:00.000Z',
+    type: 0,
   },
   {
-    title: 'Request Meeting',
-    date: '2023-05-05T17:00:00.000Z',
+    title: 'Request for consultation',
+    date: '2023-05-20T17:00:00.000Z',
+    type: 1,
   },
 ];
 
@@ -25,7 +27,6 @@ const useCalendarState = (initialState = null) => {
 };
 
 const filter = (date) => {
-  // console.log(dayjs(date).format('DD-MM-YYYY'), dayjs(sampleData[0].date).format('DD-MM-YYYY'));
   return _.filter(sampleData, function (o) { return dayjs(date).format('DD-MM-YYYY') != dayjs(o.date).format('DD-MM-YYYY'); }).length > 0;
 };
 
@@ -37,9 +38,6 @@ const CalendarScreen = () => {
 
   const [isRefreshing, startRefreshing] = useRefresh();
   const [selectedDate, setDate] = useState(new Date());
-  const [range, setRange] = useState({});
-
-  const minMaxCalendarState = useCalendarState();
   const randomColor = (param) => Math.floor(Math.random() * 16777215 + param).toString(16);
 
   useEffect(() => {
@@ -52,7 +50,7 @@ const CalendarScreen = () => {
         <Calendar
           date={selectedDate}
           onSelect={nextDate => setDate(nextDate)}
-          style={[{ width: '100%', borderBottomWidth: 0, }]}
+          style={[{ width: '100%', borderWidth: 0, marginBottom: 20 }]}
           renderDay={({ date, holiday, bounding, range }) => {
             const data = _.filter(sampleData, function (o) {
               return dayjs(dayjs(o.date)).isSame(dayjs(date), 'date');
@@ -74,12 +72,38 @@ const CalendarScreen = () => {
               </View>
             );
           }}
-        // filter={filter}
-        // min={yesterday}
-        // max={tomorrow}
-        // {...minMaxCalendarState}
         />
-        <View className="bg-slate-100 h-1 w-screen" style={{ paddingHorizontal: 24, marginTop: 30 }}>
+        <View className={[styles.detailContainer]}>
+          {
+            _.filter(sampleData, function (o) {
+              return dayjs(dayjs(o.date)).isSame(dayjs(selectedDate), 'date');
+            }).map(({ date, title, type }, index) => {
+              return (
+                <View key={index} style={[styles.profileContainer]}>
+                  <View style={{ alignItems: 'center', flexDirection: 'row' }}>
+                    <Avatar
+                      style={styles.avatar}
+                      size='small'
+                      source={{ uri: faker.image.avatar(250, 250, true) }}
+                    />
+                    <View style={[{ justifyContent: 'center' }]}>
+                      <Text style={[styles.displayName]}>{faker.internet.userName()}</Text>
+                      <Text style={[{ marginLeft: 10, fontSize: 12 }]}>{title}</Text>
+                    </View>
+                  </View>
+                  <Button
+                    style={[{ width: 100, color: 'blue' }]}
+                    appearance='outline'
+                    size='tiny'
+                    status='primary'
+                  >
+                    <RNtext style={{ color: 'blue' }}>{type == 1 ? 'Help Now' : 'Live Now'}</RNtext>
+                  </Button>
+                </View>
+              );
+            })
+          }
+
         </View>
       </ScrollView>
     </View>
@@ -89,7 +113,6 @@ const CalendarScreen = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#ffffff'
   },
   textTitle: {
     fontWeight: 'bold',
@@ -103,12 +126,33 @@ const styles = StyleSheet.create({
   dot: {
     borderWidth: 1,
     borderRadius: 100,
-    // borderColor: 'blue',
-    // backgroundColor: 'blue',
     height: 5,
     width: 5,
-    // marginHorizontal: ,
-  }
+  },
+  detailContainer: {
+    marginTop: 20,
+    flex: 1
+  },
+  detailWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  displayName: {
+    marginLeft: 10,
+    fontWeight: 'bold',
+    fontSize: 14
+  },
+  profileContainer: {
+    marginVertical: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  avatar: {
+    borderWidth: 1,
+    borderColor: '#ffffff'
+  },
 });
 
 export default CalendarScreen;
