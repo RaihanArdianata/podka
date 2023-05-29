@@ -21,6 +21,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import SearchScreen from './screens/SearchScreen';
 import HeaderSearch from './navigations/HeaderSearch';
 import LiveCamera from './components/LiveCamera';
+import SpeakRequestScreen from './screens/SpeakRequestScreen';
 
 // const MoreIcon = (props) => (
 //   <Icon
@@ -123,6 +124,18 @@ export default function App() {
                 }} />
                 <Stack.Screen name="LiveCamera" component={LiveCamera} options={{
                   headerShown: false,
+                  animation: 'fade',
+                  config: {
+                    stiffness: 1000,
+                    damping: 500,
+                    mass: 3,
+                    overshootClamping: true,
+                    restDisplacementThreshold: 0.01,
+                    restSpeedThreshold: 0.01,
+                  },
+                }} />
+                <Stack.Screen name="SpeakRequest" component={SpeakRequestScreen} options={{
+                  // headerShown: false,
                   animation: 'fade',
                   config: {
                     stiffness: 1000,
