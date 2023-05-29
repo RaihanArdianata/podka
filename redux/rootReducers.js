@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
 import color from "./slices/exampleSlice";
 import actionSheet from "./slices/actionSheetSlice";
+import user from "./slices/sampleUserRequestSlice";
 
 const createReducer = (asyncReducers) => (state, action) => {
   const combinedReducer = combineReducers({
     actionSheet,
     color,
+    user,
     ...asyncReducers,
   });
 

@@ -11,12 +11,12 @@ import { faker } from '@faker-js/faker';
 const sampleData = [
   {
     title: 'Your Schedule Live',
-    date: '2023-05-20T17:00:00.000Z',
+    date: '2023-06-02T17:00:00.000Z',
     type: 0,
   },
   {
     title: 'Request for consultation',
-    date: '2023-05-20T17:00:00.000Z',
+    date: '2023-06-02T17:00:00.000Z',
     type: 1,
   },
 ];
