@@ -81,7 +81,7 @@ const PostSingleOverlay = () => {
             style={[{ borderRadius: 99999 }]}
             appearance='ghost'
             accessoryLeft={Chat}
-            onPress={() => dispatch(openCommentModal({ open: true, sheetType: 0, data: [] }))}
+            onPress={() => dispatch(openCommentModal({ open: true, sheetType: 0, data: [], snapPoints: ['100%', '50%'] }))}
           />
           <Text style={{ color: '#ffffff' }}>{faker.finance.account(3)}</Text>
         </View>

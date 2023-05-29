@@ -9,18 +9,19 @@ import { useMemo } from 'react';
 const Modal = () => {
   const sheetState = useSelector(selectSheet);
   const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ['50%', '100%'], []);
+  const snapPoints = useMemo(() => ['25%', '50%', '100%'], []);
 
   useEffect(() => {
     if (sheetState.open && bottomSheetRef.current) {
       bottomSheetRef.current.expand();
     }
-
   }, [sheetState]);
 
   const renderContent = () => {
     switch (sheetState.sheetType) {
       case 0:
+        return (<></>);
+      case 1:
         return (<></>);
       default:
         return (<></>);
@@ -30,7 +31,7 @@ const Modal = () => {
   return (
     <BottomSheet
       ref={bottomSheetRef}
-      snapPoints={snapPoints}
+      snapPoints={sheetState.snapPoints}
       index={-1}
       handleHeight={40}
       enablePanDownToClose

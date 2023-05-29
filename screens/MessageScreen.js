@@ -4,8 +4,6 @@ import { useRefresh } from '../components/useRefresh';
 import { Avatar, Button, Text } from '@ui-kitten/components';
 import { faker } from '@faker-js/faker';
 import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-dayjs.extend(relativeTime);
 
 const MessageScreen = () => {
   const [isRefreshing, startRefreshing] = useRefresh();
