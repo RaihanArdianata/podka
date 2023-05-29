@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { Button, Icon } from '@ui-kitten/components';
 import PodLogo from '../assets/podLogo.svg';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { openCommentModal } from '../redux/slices/actionSheetSlice';
 
 const requestUser = [
   {}
@@ -62,6 +64,7 @@ const eyeIcon = (props) => {
 };
 
 const LiveCamera = ({ navigation }) => {
+  const dispatch = useDispatch();
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
 
@@ -117,6 +120,7 @@ const LiveCamera = ({ navigation }) => {
               style={[{ borderRadius: 99999 }]}
               appearance='ghost'
               accessoryLeft={calendarIcon}
+              onPress={() => dispatch(openCommentModal({ open: true, sheetType: 1, data: [], position: 1, snapPoints: ['25%'] }))}
             />
             <Button
               style={[{ borderRadius: 99999 }]}

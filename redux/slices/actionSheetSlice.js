@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   sheetType: 0,
   open: false,
-  data: null
+  data: null,
+  snapPoints: ['25%', '50%', '100%'],
 };
 
 export const sheetSlice = createSlice({
